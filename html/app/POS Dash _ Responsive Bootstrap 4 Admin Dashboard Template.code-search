@@ -1,0 +1,504 @@
+# Query: POS Dash | Responsive Bootstrap 4 Admin Dashboard Template
+# ContextLines: 1
+
+100 results - 100 files
+
+html/app/chat.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/app/email-compose.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/app/email.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/app/todo.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/app/user-account-setting.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/app/user-add.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/app/user-list.html:
+  6        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  7:       <title>Ali Recycling</title>
+  8        
+
+html/app/user-privacy-setting.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/app/user-profile-edit.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/app/user-profile.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/auth-confirm-mail.html:
+  8        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  9:       <title>Ali Recycling</title>
+  10        
+
+html/backend/auth-lock-screen.html:
+  8        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  9:       <title>Ali Recycling</title>
+  10        
+
+html/backend/auth-recoverpw.html:
+  8        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  9:       <title>Ali Recycling</title>
+  10        
+
+html/backend/auth-sign-in.html:
+  8        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  9:       <title>Ali Recycling</title>
+  10        
+
+html/backend/auth-sign-up.html:
+  8        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  9:       <title>Ali Recycling</title>
+  10        
+
+html/backend/chart-am.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/chart-apex.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/chart-high.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/chart-morries.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/contact-detail.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/contact-list.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/form-chechbox.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/form-datepicker.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/form-file-uploader.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/form-input-group.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/form-layout.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/form-quill.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/form-radio.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/form-select.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/form-switch.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/form-textarea.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/form-validation.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/form-wizard-validate.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/form-wizard-vertical.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/form-wizard.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/icon-remixicon.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/index.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/page-add-category.html:
+  6        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  7:       <title>Ali Recycling</title>
+  8        
+
+html/backend/page-add-customers.html:
+  6        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  7:       <title>Ali Recycling</title>
+  8        
+
+html/backend/page-add-product.html:
+  6        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  7:       <title>Ali Recycling</title>
+  8        
+
+html/backend/page-add-purchase.html:
+  6        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  7:       <title>Ali Recycling</title>
+  8        
+
+html/backend/page-add-return.html:
+  6        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  7:       <title>Ali Recycling</title>
+  8        
+
+html/backend/page-add-sale.html:
+  6        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  7:       <title>Ali Recycling</title>
+  8        
+
+html/backend/page-add-supplier.html:
+  6        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  7:       <title>Ali Recycling</title>
+  8        
+
+html/backend/page-add-users.html:
+  6        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  7:       <title>Ali Recycling</title>
+  8        
+
+html/backend/page-list-category.html:
+  6        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  7:       <title>Ali Recycling</title>
+  8        
+
+html/backend/page-list-customers.html:
+  6        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  7:       <title>Ali Recycling</title>
+  8        
+
+html/backend/page-list-product.html:
+  6        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  7:       <title>Ali Recycling</title>
+  8        
+
+html/backend/page-list-purchase.html:
+  6        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  7:       <title>Ali Recycling</title>
+  8        
+
+html/backend/page-list-returns.html:
+  6        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  7:       <title>Ali Recycling</title>
+  8        
+
+html/backend/page-list-sale.html:
+  6        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  7:       <title>Ali Recycling</title>
+  8        
+
+html/backend/page-list-suppliers.html:
+  6        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  7:       <title>Ali Recycling</title>
+  8        
+
+html/backend/page-list-users.html:
+  6        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  7:       <title>Ali Recycling</title>
+  8        
+
+html/backend/page-report.html:
+  6        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  7:       <title>Ali Recycling</title>
+  8        
+
+html/backend/pages-blank-page.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/pages-comingsoon.html:
+  8        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  9:       <title>Ali Recycling</title>
+  10        
+
+html/backend/pages-error-500.html:
+  8        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  9:       <title>Ali Recycling</title>
+  10        
+
+html/backend/pages-error.html:
+  8        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  9:       <title>Ali Recycling</title>
+  10        
+
+html/backend/pages-faq.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/pages-invoice.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/pages-maintenance.html:
+  8        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  9:       <title>Ali Recycling</title>
+  10        
+
+html/backend/pages-subscribers.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/pricing-1.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/pricing-2.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/pricing-3.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/pricing.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/privacy-policy.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/table-data.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/table-editable.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/table-tree.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/tables-basic.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/terms-of-service.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/timeline-1.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/timeline-2.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/timeline-3.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/timeline.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/ui-alerts.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/ui-avatars.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/ui-badges.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/ui-boxshadow.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/ui-breadcrumb.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/ui-buttons-group.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/ui-buttons.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/ui-cards.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/ui-carousel.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/ui-colors.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/ui-embed-video.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/ui-grid.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/ui-helper-classes.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/ui-images.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/ui-list-group.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/ui-media-object.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/ui-modal.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/ui-notifications.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/ui-pagination.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/ui-popovers.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/ui-progressbars.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/ui-tabs.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/ui-tooltips.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
+
+html/backend/ui-typography.html:
+  7        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  8:       <title>Ali Recycling</title>
+  9        
