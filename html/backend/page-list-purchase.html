@@ -260,259 +260,263 @@
       </div>      
       
       
-      <div class="content-page">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
-                        <div>
-                            <h4 class="mb-3">Purchase List</h4>
-                            <p class="mb-0">A purchase dashboard enables purchasing manager to efficiently track, evaluate, <br>and optimize all acquisition processes within a company.</p>
-                        </div>
-                        <a href="page-add-purchase.html" class="btn btn-primary add-list"><i class="las la-plus mr-3"></i>Add Purchase</a>
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <div class="table-responsive rounded mb-3">
-                        <table class="data-table table mb-0 tbl-server-info">
-                            <thead class="bg-white text-uppercase">
-                                <tr class="ligth ligth-data">
-                                    <th>
-                                        <div class="checkbox d-inline-block">
-                                            <input type="checkbox" class="checkbox-input" id="checkbox1">
-                                            <label for="checkbox1" class="mb-0"></label>
-                                        </div>
-                                    </th>
-                                    <th>Date</th>
-                                    <th>Phone No</th>
-                                    <th>Product</th>
-                                    <th>Product Purchase From</th>
-                                    <th>Amount</th>
-                                    <th>Address</th>
-                                    <th>Quantity</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody class="ligth-body" id="purchaseTableBody">
-                                <!-- Data rows will be inserted here -->
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-    
-                <!-- Modal for Viewing and Editing -->
-                <div class="modal fade" id="purchaseModal" tabindex="-1" role="dialog" aria-labelledby="purchaseModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="purchaseModalLabel">View / Edit Purchase</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <form id="purchaseForm">
-                                    <div class="form-group">
-                                        <label for="purchaseDate">Date</label>
-                                        <input type="text" class="form-control" id="purchaseDate" disabled>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="phoneNumber">Phone No</label>
-                                        <input type="text" class="form-control" id="phoneNumber" disabled>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="productName">Product</label>
-                                        <input type="text" class="form-control" id="productName">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="productAgent">Product Purchase From</label>
-                                        <input type="text" class="form-control" id="productAgent">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="amount">Amount</label>
-                                        <input type="number" class="form-control" id="amount">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="address">Address</label>
-                                        <input type="text" class="form-control" id="address">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="quantity">Quantity</label>
-                                        <input type="number" class="form-control" id="quantity">
-                                    </div>
-                                    <input type="hidden" id="purchaseId">
-                                    <button type="submit" class="btn btn-primary">Save</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-    
-                <!-- Firebase Integration Script -->
-                <script type="module">
-                    // Import Firebase SDKs
-                    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-                    import { getFirestore, collection, getDocs, doc, getDoc, deleteDoc, updateDoc } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
-                  
-                    // Firebase Configuration
-                    const firebaseConfig = {
-                      apiKey: "AIzaSyDEgnecR63RJ_pe-2r4pOnpEDv5qLUl2jU",
-                      authDomain: "nurafiq-recycling.firebaseapp.com",
-                      projectId: "nurafiq-recycling",
-                      storageBucket: "nurafiq-recycling.firebasestorage.app",
-                      messagingSenderId: "583278888482",
-                      appId: "1:583278888482:web:c401301f1e08fb8ee4ac7b"
-                    };
-                  
-                    // Initialize Firebase
-                    const app = initializeApp(firebaseConfig);
-                    const db = getFirestore(app);
-                  
-                    // Fetch and display purchase data
-                    async function fetchPurchases() {
-                        const purchaseTableBody = document.getElementById('purchaseTableBody');
-                        const purchaseCollection = collection(db, 'purchases');
-                        const purchaseSnapshot = await getDocs(purchaseCollection);
-                        
-                        purchaseSnapshot.forEach((docSnapshot) => {
-                            const purchase = docSnapshot.data();
-                            const row = document.createElement('tr');
-                            const quantity = parseInt(purchase.quantity) || 0;
-                            const totalCost = parseFloat(purchase.totalCost) || 0;
-                            
-                            row.innerHTML = `
-                              <td>
-                                <div class="checkbox d-inline-block">
-                                  <input type="checkbox" class="checkbox-input" id="checkbox-${docSnapshot.id}">
-                                  <label for="checkbox-${docSnapshot.id}" class="mb-0"></label>
-                                </div>
-                              </td>
-                              <td>${purchase.purchaseDate || 'N/A'}</td>
-                              <td>${purchase.supplierPhone || 'N/A'}</td>
-                              <td>${purchase.productName || 'N/A'}</td>
-                              <td>${purchase.agent || 'N/A'}</td>
-                              <td>${totalCost || 'N/A'}</td>
-                              <td>${purchase.supplierAddress || 'N/A'}</td>
-                              <td>${quantity || 'N/A'}</td>
-                              <td>
-                                <div class="d-flex align-items-center list-action">
-                                  <a class="badge badge-info mr-2" data-toggle="tooltip" data-placement="top" title="View" href="#" data-id="${docSnapshot.id}">
-                                    <i class="ri-eye-line mr-0"></i>
-                                  </a>
-                                  <a class="badge bg-success mr-2" data-toggle="tooltip" data-placement="top" title="Edit" href="#" data-id="${docSnapshot.id}">
-                                    <i class="ri-pencil-line mr-0"></i>
-                                  </a>
-                                  <a class="badge bg-warning mr-2" data-toggle="tooltip" data-placement="top" title="Delete" href="#" data-id="${docSnapshot.id}">
-                                    <i class="ri-delete-bin-line mr-0"></i>
-                                  </a>
-                                </div>
-                              </td>
-                            `;
-                            purchaseTableBody.appendChild(row);
-                        });
-                    }
-                
-                    // Event listeners for action buttons
-                    document.addEventListener('click', function(e) {
-                        if (e.target.closest('a[data-id]')) {
-                            const docId = e.target.closest('a').getAttribute('data-id');
-                            const actionType = e.target.closest('a').classList.contains('badge-info') ? 'view' :
-                                               e.target.closest('a').classList.contains('bg-success') ? 'edit' : 'delete';
-                            handleAction(actionType, docId);
-                        }
-                    });
-                
-                    // Handle actions (view, edit, delete)
-                    async function handleAction(actionType, docId) {
-                        switch (actionType) {
-                            case 'view':
-                                viewPurchase(docId);
-                                break;
-                            case 'edit':
-                                editPurchase(docId);
-                                break;
-                            case 'delete':
-                                await deletePurchase(docId);
-                                break;
-                        }
-                    }
-                
-                    // View purchase - load data into the modal
-                    async function viewPurchase(docId) {
-                        const docRef = doc(db, 'purchases', docId);
-                        const docSnapshot = await getDoc(docRef); // Here, getDoc is used
-                        const purchase = docSnapshot.data();
-                
-                        document.getElementById('purchaseDate').value = purchase.purchaseDate || '';
-                        document.getElementById('phoneNumber').value = purchase.supplierPhone || '';
-                        document.getElementById('productName').value = purchase.productName || '';
-                        document.getElementById('productAgent').value = purchase.agent || '';
-                        document.getElementById('amount').value = purchase.totalCost || '';
-                        document.getElementById('address').value = purchase.supplierAddress || '';
-                        document.getElementById('quantity').value = purchase.quantity || '';
-                        document.getElementById('purchaseId').value = docId;
-                
-                        $('#purchaseModal').modal('show');  // Open modal to view
-                    }
-                
-                    // Edit purchase - load data and allow editing
-                    async function editPurchase(docId) {
-                        const docRef = doc(db, 'purchases', docId);
-                        const docSnapshot = await getDoc(docRef); // Here, getDoc is used
-                        const purchase = docSnapshot.data();
-                
-                        document.getElementById('purchaseDate').value = purchase.purchaseDate || '';
-                        document.getElementById('phoneNumber').value = purchase.supplierPhone || '';
-                        document.getElementById('productName').value = purchase.productName || '';
-                        document.getElementById('productAgent').value = purchase.agent || '';
-                        document.getElementById('amount').value = purchase.totalCost || '';
-                        document.getElementById('address').value = purchase.supplierAddress || '';
-                        document.getElementById('quantity').value = purchase.quantity || '';
-                        document.getElementById('purchaseId').value = docId;
-                
-                        $('#purchaseModal').modal('show');  // Open modal to edit
-                    }
-                
-                    // Save edited purchase
-                    document.getElementById('purchaseForm').addEventListener('submit', async function(e) {
-                        e.preventDefault();
-                        const purchaseId = document.getElementById('purchaseId').value;
-                        const updatedData = {
-                            productName: document.getElementById('productName').value,
-                            agent: document.getElementById('productAgent').value,
-                            totalCost: parseFloat(document.getElementById('amount').value),
-                            supplierAddress: document.getElementById('address').value,
-                            quantity: parseInt(document.getElementById('quantity').value)
-                        };
-                
-                        const docRef = doc(db, 'purchases', purchaseId);
-                        await updateDoc(docRef, updatedData);
-                        alert('Purchase updated successfully!');
-                        $('#purchaseModal').modal('hide');  // Close modal
-                        fetchPurchases();  // Reload purchase data
-                    });
-                
-                    // Delete purchase
-                    async function deletePurchase(docId) {
-                        try {
-                            const docRef = doc(db, 'purchases', docId);
-                            await deleteDoc(docRef);
-                            console.log(`Document ${docId} deleted successfully`);
-                            alert('Purchase deleted successfully!');
-                            fetchPurchases();  // Reload purchase data after deletion
-                        } catch (error) {
-                            console.error("Error deleting document:", error);
-                            alert('Error deleting purchase');
-                        }
-                    }
-                
-                    // Initialize the table by fetching data
-                    fetchPurchases();
-                </script>
-                
-            </div>
+<div class="content-page">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
+          <div>
+            <h4 class="mb-3">Purchase List</h4>
+            <p class="mb-0">A purchase dashboard enables purchasing manager to efficiently track, evaluate, <br>and optimize all acquisition processes within a company.</p>
+          </div>
+          <a href="page-add-purchase.html" class="btn btn-primary add-list"><i class="las la-plus mr-3"></i>Add Purchase</a>
         </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="table-responsive rounded mb-3">
+          <table class="data-table table mb-0 tbl-server-info">
+            <thead class="bg-white text-uppercase">
+              <tr class="ligth ligth-data">
+                <th>Date</th>
+                <th>Phone No</th>
+                <th>Product</th>
+                <th>Product Purchase From</th>
+                <th>Amount</th>
+                <th>Address</th>
+                <th>Quantity</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody class="ligth-body" id="purchaseTableBody">
+              <!-- Data rows will be inserted here -->
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="7" class="text-right"><strong>Total Purchase Value</strong></td>
+                <td id="totalPurchaseValue">0</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
     </div>
+    
+    <!-- Modal for Viewing and Editing -->
+    <div class="modal fade" id="purchaseModal" tabindex="-1" role="dialog" aria-labelledby="purchaseModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="purchaseModalLabel">View / Edit Purchase</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="purchaseForm">
+              <div class="form-group">
+                <label for="purchaseDate">Date</label>
+                <input type="text" class="form-control" id="purchaseDate" disabled>
+              </div>
+              <div class="form-group">
+                <label for="phoneNumber">Phone No</label>
+                <input type="text" class="form-control" id="phoneNumber" disabled>
+              </div>
+              <div class="form-group">
+                <label for="productName">Product</label>
+                <input type="text" class="form-control" id="productName">
+              </div>
+              <div class="form-group">
+                <label for="productAgent">Product Purchase From</label>
+                <input type="text" class="form-control" id="productAgent">
+              </div>
+              <div class="form-group">
+                <label for="amount">Amount</label>
+                <input type="number" class="form-control" id="amount">
+              </div>
+              <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" class="form-control" id="address">
+              </div>
+              <div class="form-group">
+                <label for="quantity">Quantity</label>
+                <input type="number" class="form-control" id="quantity">
+              </div>
+              <input type="hidden" id="purchaseId">
+              <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Firebase Integration Script -->
+    <script type="module">
+      // Import Firebase SDKs
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+      import { getFirestore, collection, getDocs, doc, getDoc, deleteDoc, updateDoc } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
+    
+      // Firebase Configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyDEgnecR63RJ_pe-2r4pOnpEDv5qLUl2jU",
+        authDomain: "nurafiq-recycling.firebaseapp.com",
+        projectId: "nurafiq-recycling",
+        storageBucket: "nurafiq-recycling.firebasestorage.app",
+        messagingSenderId: "583278888482",
+        appId: "1:583278888482:web:c401301f1e08fb8ee4ac7b"
+      };
+    
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+    
+      // Fetch and display purchase data
+      async function fetchPurchases() {
+        const purchaseTableBody = document.getElementById('purchaseTableBody');
+        const purchaseCollection = collection(db, 'purchases');
+        const purchaseSnapshot = await getDocs(purchaseCollection);
+        let totalPurchaseValue = 0;
+        
+        // Clear existing table rows
+        purchaseTableBody.innerHTML = '';
+        
+        purchaseSnapshot.forEach((docSnapshot) => {
+          const purchase = docSnapshot.data();
+          const quantity = parseInt(purchase.quantity) || 0;
+          const totalCost = parseFloat(purchase.totalCost) || 0;
+          
+          // Add total cost to the overall total
+          totalPurchaseValue += totalCost;
+          
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>${purchase.purchaseDate || 'N/A'}</td>
+            <td>${purchase.supplierPhone || 'N/A'}</td>
+            <td>${purchase.productName || 'N/A'}</td>
+            <td>${purchase.agent || 'N/A'}</td>
+            <td>${totalCost || 'N/A'}</td>
+            <td>${purchase.supplierAddress || 'N/A'}</td>
+            <td>${quantity || 'N/A'}</td>
+            <td>
+              <div class="d-flex align-items-center list-action">
+                <a class="badge badge-info mr-2" data-toggle="tooltip" data-placement="top" title="View" href="#" data-id="${docSnapshot.id}">
+                  <i class="ri-eye-line mr-0"></i>
+                </a>
+                <a class="badge bg-success mr-2" data-toggle="tooltip" data-placement="top" title="Edit" href="#" data-id="${docSnapshot.id}">
+                  <i class="ri-pencil-line mr-0"></i>
+                </a>
+                <a class="badge bg-warning mr-2" data-toggle="tooltip" data-placement="top" title="Delete" href="#" data-id="${docSnapshot.id}">
+                  <i class="ri-delete-bin-line mr-0"></i>
+                </a>
+              </div>
+            </td>
+          `;
+          purchaseTableBody.appendChild(row);
+        });
+
+        // Update the total purchase value display
+        document.getElementById('totalPurchaseValue').innerText = totalPurchaseValue.toFixed(2);
+      }
+  
+      // Event listeners for action buttons
+      document.addEventListener('click', function(e) {
+        if (e.target.closest('a[data-id]')) {
+          const docId = e.target.closest('a').getAttribute('data-id');
+          const actionType = e.target.closest('a').classList.contains('badge-info') ? 'view' :
+                             e.target.closest('a').classList.contains('bg-success') ? 'edit' : 'delete';
+          handleAction(actionType, docId);
+        }
+      });
+  
+      // Handle actions (view, edit, delete)
+      async function handleAction(actionType, docId) {
+        switch (actionType) {
+          case 'view':
+            viewPurchase(docId);
+            break;
+          case 'edit':
+            editPurchase(docId);
+            break;
+          case 'delete':
+            await deletePurchase(docId);
+            break;
+        }
+      }
+  
+      // View purchase - load data into the modal
+      async function viewPurchase(docId) {
+        const docRef = doc(db, 'purchases', docId);
+        const docSnapshot = await getDoc(docRef); // Here, getDoc is used
+        const purchase = docSnapshot.data();
+  
+        document.getElementById('purchaseDate').value = purchase.purchaseDate || '';
+        document.getElementById('phoneNumber').value = purchase.supplierPhone || '';
+        document.getElementById('productName').value = purchase.productName || '';
+        document.getElementById('productAgent').value = purchase.agent || '';
+        document.getElementById('amount').value = purchase.totalCost || '';
+        document.getElementById('address').value = purchase.supplierAddress || '';
+        document.getElementById('quantity').value = purchase.quantity || '';
+        document.getElementById('purchaseId').value = docId;
+  
+        $('#purchaseModal').modal('show');  // Open modal to view
+      }
+  
+      // Edit purchase - load data and allow editing
+      async function editPurchase(docId) {
+        const docRef = doc(db, 'purchases', docId);
+        const docSnapshot = await getDoc(docRef); // Here, getDoc is used
+        const purchase = docSnapshot.data();
+  
+        document.getElementById('purchaseDate').value = purchase.purchaseDate || '';
+        document.getElementById('phoneNumber').value = purchase.supplierPhone || '';
+        document.getElementById('productName').value = purchase.productName || '';
+        document.getElementById('productAgent').value = purchase.agent || '';
+        document.getElementById('amount').value = purchase.totalCost || '';
+        document.getElementById('address').value = purchase.supplierAddress || '';
+        document.getElementById('quantity').value = purchase.quantity || '';
+        document.getElementById('purchaseId').value = docId;
+  
+        $('#purchaseModal').modal('show');  // Open modal to edit
+      }
+  
+      // Save edited purchase
+      document.getElementById('purchaseForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const purchaseId = document.getElementById('purchaseId').value;
+        const updatedData = {
+          productName: document.getElementById('productName').value,
+          agent: document.getElementById('productAgent').value,
+          totalCost: parseFloat(document.getElementById('amount').value),
+          supplierAddress: document.getElementById('address').value,
+          quantity: parseInt(document.getElementById('quantity').value)
+        };
+  
+        const docRef = doc(db, 'purchases', purchaseId);
+        await updateDoc(docRef, updatedData);
+        alert('Purchase updated successfully!');
+        $('#purchaseModal').modal('hide');  // Close modal
+        fetchPurchases();  // Reload purchase data
+      });
+  
+      // Delete purchase
+      async function deletePurchase(docId) {
+        try {
+          const docRef = doc(db, 'purchases', docId);
+          await deleteDoc(docRef);
+          console.log(`Document ${docId} deleted successfully`);
+          alert('Purchase deleted successfully!');
+          fetchPurchases();  // Reload purchase data after deletion
+        } catch (error) {
+          console.error("Error deleting document:", error);
+          alert('Error deleting purchase');
+        }
+      }
+  
+      // Initialize the table by fetching data
+      fetchPurchases();
+    </script>
+  </div>
+</div>
+
     
     <!-- Wrapper End-->
     <footer class="iq-footer">

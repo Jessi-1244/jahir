@@ -257,280 +257,315 @@
 
       
 
+      <style>
+        /* Simple styles for the page and modal */
+        #editSaleModal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            width: 300px;
+            z-index: 1000;
+        }
 
-<!-- Modal for editing sale (example) -->
-<style>
-    /* Simple styles for the page and modal */
-    #editSaleModal {
-        display: none;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: white;
-        padding: 20px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        border-radius: 8px;
-        width: 300px;
-        z-index: 1000;
-    }
+        #editSaleModal form {
+            display: flex;
+            flex-direction: column;
+        }
 
-    #editSaleModal form {
-        display: flex;
-        flex-direction: column;
-    }
+        #editSaleModal input {
+            margin-bottom: 10px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
 
-    #editSaleModal input {
-        margin-bottom: 10px;
-        padding: 8px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-    }
+        #editSaleModal button {
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
 
-    #editSaleModal button {
-        padding: 10px;
-        background-color: #28a745;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
+        #editSaleModal button:hover {
+            background-color: #218838;
+        }
 
-    #editSaleModal button:hover {
-        background-color: #218838;
-    }
+        table {
+            width: 100%;
+            margin: 20px 0;
+            border-collapse: collapse;
+        }
 
-    table {
-        width: 100%;
-        margin: 20px 0;
-        border-collapse: collapse;
-    }
+        th,
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
 
-    th,
-    td {
-        padding: 12px;
-        border: 1px solid #ddd;
-        text-align: left;
-    }
+        .badge {
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 4px;
+            color: white;
+        }
 
-    .badge {
-        cursor: pointer;
-        padding: 5px 10px;
-        border-radius: 4px;
-        color: white;
-    }
+        .badge-info {
+            background-color: #17a2b8;
+        }
 
-    .badge-info {
-        background-color: #17a2b8;
-    }
+        .badge-success {
+            background-color: #28a745;
+        }
 
-    .badge-success {
-        background-color: #28a745;
-    }
+        .badge-warning {
+            background-color: #ffc107;
+        }
 
-    .badge-warning {
-        background-color: #ffc107;
-    }
+        /* Inline styling for the action buttons */
+        .action-buttons {
+            display: inline-block;
+        }
 
-    /* Inline styling for the action buttons */
-    .action-buttons {
-        display: inline-block;
-    }
+        .action-buttons a {
+            margin-right: 8px;
+        }
 
-    .action-buttons a {
-        margin-right: 8px;
-    }
-</style>
-</head>
+        /* Optional: Style for total sales card */
+        #totalSales {
+            font-weight: bold;
+            color: #28a745; /* Green color for total sales */
+            font-size: 2rem;
+        }
+    </style>
 
-<body>
 
-<div class="content-page">
 
-    <div class="container-fluid">
+    <div class="content-page">
 
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
-                    <div>
-                        <h4 class="mb-3">Sale List</h4>
-                        <p class="mb-0">Sales enables you to effectively control sales KPIs and monitor them in one central
-                            <br> place while helping teams to reach sales goals. </p>
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="d-flex justify-content-between mb-4">
+                        <h4 class="mb-3">Dashboard</h4>
                     </div>
-                    <a href="page-add-sale.html" class="btn btn-primary add-list"><i class="las la-plus mr-3"></i>Add Sale</a>
+                    <div class="row">
+                        <!-- Total Sales -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="card p-4 shadow-sm rounded">
+                                <h5>Total Sales</h5>
+                                <p class="fs-3" id="totalSales">Loading...</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-12">
-                <div class="table-responsive rounded mb-3">
-                    <table class="data-table table mb-0 tbl-server-info">
-                        <thead class="bg-white text-uppercase">
-                            <tr class="ligth ligth-data">
-                                <th>Date</th>
-                                <th>Name</th>
-                                <th>Phone No</th>
-                                <th>Products</th>
-                                <th>Quantity</th>
-                                <th>Total Amount</th>
-                                <th>Payment Method</th>
-                                <th>Address</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody class="light-body" id="salesTableBody">
 
-                        </tbody>
-                    </table>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
+                        <div>
+                            <h4 class="mb-3">Sale List</h4>
+                            <p class="mb-0">Sales enables you to effectively control sales KPIs and monitor them in one central
+                                <br> place while helping teams to reach sales goals. </p>
+                        </div>
+                        <a href="page-add-sale.html" class="btn btn-primary add-list"><i class="las la-plus mr-3"></i>Add Sale</a>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="table-responsive rounded mb-3">
+                        <table class="data-table table mb-0 tbl-server-info">
+                            <thead class="bg-white text-uppercase">
+                                <tr class="ligth ligth-data">
+                                    <th>Date</th>
+                                    <th>Name</th>
+                                    <th>Phone No</th>
+                                    <th>Products</th>
+                                    <th>Quantity</th>
+                                    <th>Total Amount</th>
+                                    <th>Payment Method</th>
+                                    <th>Address</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody class="light-body" id="salesTableBody">
+
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
+
         </div>
 
     </div>
 
-</div>
-
-<!-- Edit Sale Modal -->
-<div id="editSaleModal">
-    <h3>Edit Sale</h3>
-    <form id="editSaleForm">
-        <input type="text" name="saleDate" placeholder="Sale Date" required>
-        <input type="text" name="customerName" placeholder="Customer Name" required>
-        <input type="text" name="productName" placeholder="Product Name" required>
-        <input type="number" name="quantity" placeholder="Quantity" required>
-        <input type="number" name="totalAmount" placeholder="Total Amount" required>
-        <input type="text" name="paymentMethod" placeholder="Payment Method" required>
-        <input type="text" name="customerAddress" placeholder="Customer Address" required>
-        <button type="submit">Save Changes</button>
-    </form>
-</div>
-
-<!-- Firebase Integration -->
-<script type="module">
-    // Import Firebase SDKs
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-    import { getFirestore, collection, getDocs, doc, getDoc, deleteDoc, updateDoc } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
-
-    // Firebase Configuration
-    const firebaseConfig = {
-        apiKey: "AIzaSyDEgnecR63RJ_pe-2r4pOnpEDv5qLUl2jU",
-        authDomain: "nurafiq-recycling.firebaseapp.com",
-        projectId: "nurafiq-recycling",
-        storageBucket: "nurafiq-recycling.firebasestorage.app",
-        messagingSenderId: "583278888482",
-        appId: "1:583278888482:web:c401301f1e08fb8ee4ac7b"
-    };
-
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-
-    // Fetch and display sales data
-    async function fetchSales() {
-        const salesTableBody = document.getElementById('salesTableBody');
-        const salesCollection = collection(db, 'sales');
-        const salesSnapshot = await getDocs(salesCollection);
-        salesSnapshot.forEach((doc) => {
-            const sale = doc.data();
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${sale.saleDate}</td>
-                <td>${sale.customerName}</td>
-                <td>${sale.customerPhone}</td>
-                <td>${sale.productName}</td>
-                <td>${sale.quantity}</td>
-                <td>${sale.totalAmount}</td>
-                <td>${sale.paymentMethod}</td>
-                <td>${sale.customerAddress}</td>
-                <td class="action-buttons">
-                    <a class="badge badge-info mr-2" data-toggle="tooltip" data-placement="top" title="View" href="#" onclick="viewSale('${doc.id}')">
-                        <i class="ri-eye-line mr-0"></i>
-                    </a>
-                    <a class="badge bg-success mr-2" data-toggle="tooltip" data-placement="top" title="Edit" href="#" onclick="editSale('${doc.id}')">
-                        <i class="ri-pencil-line mr-0"></i>
-                    </a>
-                    <a class="badge bg-warning mr-2" data-toggle="tooltip" data-placement="top" title="Delete" href="#" onclick="deleteSale('${doc.id}')">
-                        <i class="ri-delete-bin-line mr-0"></i>
-                    </a>
-                </td>
-            `;
-            salesTableBody.appendChild(row);
-        });
-    }
-
-    // Function to view the sale details
-    window.viewSale = async function (saleId) {
-        const saleDoc = doc(db, 'sales', saleId);
-        const saleSnapshot = await getDoc(saleDoc);
-        if (saleSnapshot.exists()) {
-            const saleData = saleSnapshot.data();
-            alert(`
-                Sale Date: ${saleData.saleDate}
-                Customer Name: ${saleData.customerName}
-                Customer Phone: ${saleData.customerPhone}
-                Product Name: ${saleData.productName}
-                Quantity: ${saleData.quantity}
-                Total Amount: ${saleData.totalAmount}
-                Payment Method: ${saleData.paymentMethod}
-                Customer Address: ${saleData.customerAddress}
-            `);
-        } else {
-            alert("Sale not found!");
-        }
-    };
-
-    // Function to edit the sale details
-    window.editSale = async function (saleId) {
-        const saleDoc = doc(db, 'sales', saleId);
-        const saleSnapshot = await getDoc(saleDoc);
-        if (saleSnapshot.exists()) {
-            const saleData = saleSnapshot.data();
-            document.getElementById('editSaleForm').elements['saleDate'].value = saleData.saleDate;
-            document.getElementById('editSaleForm').elements['customerName'].value = saleData.customerName;
-            document.getElementById('editSaleForm').elements['productName'].value = saleData.productName;
-            document.getElementById('editSaleForm').elements['quantity'].value = saleData.quantity;
-            document.getElementById('editSaleForm').elements['totalAmount'].value = saleData.totalAmount;
-            document.getElementById('editSaleForm').elements['paymentMethod'].value = saleData.paymentMethod;
-            document.getElementById('editSaleForm').elements['customerAddress'].value = saleData.customerAddress;
-
-            document.getElementById('editSaleForm').onsubmit = async (event) => {
-                event.preventDefault();
-                await updateDoc(saleDoc, {
-                    saleDate: event.target.saleDate.value,
-                    customerName: event.target.customerName.value,
-                    productName: event.target.productName.value,
-                    quantity: event.target.quantity.value,
-                    totalAmount: event.target.totalAmount.value,
-                    paymentMethod: event.target.paymentMethod.value,
-                    customerAddress: event.target.customerAddress.value
-                });
-                alert('Sale updated successfully!');
-                location.reload();
-            };
-
-            document.getElementById('editSaleModal').style.display = 'block';
-        } else {
-            alert("Sale not found!");
-        }
-    };
-
-    // Function to delete the sale
-    window.deleteSale = async function (saleId) {
-        const confirmDelete = confirm("Are you sure you want to delete this sale?");
-        if (confirmDelete) {
-            const saleDoc = doc(db, 'sales', saleId);
-            await deleteDoc(saleDoc);
-            alert('Sale deleted successfully!');
-            location.reload();
-        }
-    };
-
-    // Fetch and display sales data on page load
-    fetchSales();
-</script>
-
-
-   
-      </div>
+    <!-- Edit Sale Modal -->
+    <div id="editSaleModal">
+        <h3>Edit Sale</h3>
+        <form id="editSaleForm">
+            <input type="text" name="saleDate" placeholder="Sale Date" required>
+            <input type="text" name="customerName" placeholder="Customer Name" required>
+            <input type="text" name="productName" placeholder="Product Name" required>
+            <input type="number" name="quantity" placeholder="Quantity" required>
+            <input type="number" name="totalAmount" placeholder="Total Amount" required>
+            <input type="text" name="paymentMethod" placeholder="Payment Method" required>
+            <input type="text" name="customerAddress" placeholder="Customer Address" required>
+            <button type="submit">Save Changes</button>
+        </form>
     </div>
+
+    <!-- Firebase Integration -->
+    <script type="module">
+        // Import Firebase SDKs
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+        import { getFirestore, collection, getDocs, doc, getDoc, deleteDoc, updateDoc } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
+
+        // Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDEgnecR63RJ_pe-2r4pOnpEDv5qLUl2jU",
+            authDomain: "nurafiq-recycling.firebaseapp.com",
+            projectId: "nurafiq-recycling",
+            storageBucket: "nurafiq-recycling.firebasestorage.app",
+            messagingSenderId: "583278888482",
+            appId: "1:583278888482:web:c401301f1e08fb8ee4ac7b"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Fetch and display sales data
+        async function fetchSales() {
+            const salesTableBody = document.getElementById('salesTableBody');
+            const salesCollection = collection(db, 'sales');
+            const salesSnapshot = await getDocs(salesCollection);
+            salesSnapshot.forEach((doc) => {
+                const sale = doc.data();
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${sale.saleDate}</td>
+                    <td>${sale.customerName}</td>
+                    <td>${sale.customerPhone}</td>
+                    <td>${sale.productName}</td>
+                    <td>${sale.quantity}</td>
+                    <td>${sale.totalAmount}</td>
+                    <td>${sale.paymentMethod}</td>
+                    <td>${sale.customerAddress}</td>
+                    <td class="action-buttons">
+                        <a class="badge badge-info mr-2" data-toggle="tooltip" data-placement="top" title="View" href="#" onclick="viewSale('${doc.id}')">
+                            <i class="ri-eye-line mr-0"></i>
+                        </a>
+                        <a class="badge bg-success mr-2" data-toggle="tooltip" data-placement="top" title="Edit" href="#" onclick="editSale('${doc.id}')">
+                            <i class="ri-pencil-line mr-0"></i>
+                        </a>
+                        <a class="badge bg-warning mr-2" data-toggle="tooltip" data-placement="top" title="Delete" href="#" onclick="deleteSale('${doc.id}')">
+                            <i class="ri-delete-bin-line mr-0"></i>
+                        </a>
+                    </td>
+                `;
+                salesTableBody.appendChild(row);
+            });
+        }
+
+        // Function to view the sale details
+        window.viewSale = async function (saleId) {
+            const saleDoc = doc(db, 'sales', saleId);
+            const saleSnapshot = await getDoc(saleDoc);
+            if (saleSnapshot.exists()) {
+                const saleData = saleSnapshot.data();
+                alert(`
+                    Sale Date: ${saleData.saleDate}
+                    Customer Name: ${saleData.customerName}
+                    Customer Phone: ${saleData.customerPhone}
+                    Product Name: ${saleData.productName}
+                    Quantity: ${saleData.quantity}
+                    Total Amount: ${saleData.totalAmount}
+                    Payment Method: ${saleData.paymentMethod}
+                    Customer Address: ${saleData.customerAddress}
+                `);
+            } else {
+                alert("Sale not found!");
+            }
+        };
+
+        // Function to edit the sale details
+        window.editSale = async function (saleId) {
+            const saleDoc = doc(db, 'sales', saleId);
+            const saleSnapshot = await getDoc(saleDoc);
+            if (saleSnapshot.exists()) {
+                const saleData = saleSnapshot.data();
+                document.getElementById('editSaleForm').elements['saleDate'].value = saleData.saleDate;
+                document.getElementById('editSaleForm').elements['customerName'].value = saleData.customerName;
+                document.getElementById('editSaleForm').elements['productName'].value = saleData.productName;
+                document.getElementById('editSaleForm').elements['quantity'].value = saleData.quantity;
+                document.getElementById('editSaleForm').elements['totalAmount'].value = saleData.totalAmount;
+                document.getElementById('editSaleForm').elements['paymentMethod'].value = saleData.paymentMethod;
+                document.getElementById('editSaleForm').elements['customerAddress'].value = saleData.customerAddress;
+
+                document.getElementById('editSaleForm').onsubmit = async (event) => {
+                    event.preventDefault();
+                    await updateDoc(saleDoc, {
+                        saleDate: event.target.saleDate.value,
+                        customerName: event.target.customerName.value,
+                        productName: event.target.productName.value,
+                        quantity: event.target.quantity.value,
+                        totalAmount: event.target.totalAmount.value,
+                        paymentMethod: event.target.paymentMethod.value,
+                        customerAddress: event.target.customerAddress.value
+                    });
+                    alert('Sale updated successfully!');
+                    location.reload();
+                };
+
+                document.getElementById('editSaleModal').style.display = 'block';
+            } else {
+                alert("Sale not found!");
+            }
+        };
+
+        // Function to delete the sale
+        window.deleteSale = async function (saleId) {
+            const confirmDelete = confirm("Are you sure you want to delete this sale?");
+            if (confirmDelete) {
+                const saleDoc = doc(db, 'sales', saleId);
+                await deleteDoc(saleDoc);
+                alert('Sale deleted successfully!');
+                location.reload();
+            }
+        };
+
+        // Fetch and display sales data on page load
+        fetchSales();
+
+        // Function to fetch and calculate total sales
+        async function fetchTotalSales() {
+            const salesCollection = collection(db, 'sales');
+            const salesSnapshot = await getDocs(salesCollection);
+            let totalSales = 0;
+
+            // Calculate total sales by summing the totalAmount of each sale
+            salesSnapshot.forEach((doc) => {
+                const sale = doc.data();
+                totalSales += parseFloat(sale.totalAmount) || 0; // Ensure it's a number
+            });
+
+            // Update the Total Sales section
+            document.getElementById('totalSales').textContent = totalSales.toFixed(2); // Format to 2 decimal places
+        }
+
+        // Call the function to fetch and display total sales
+        fetchTotalSales();
+    </script>
     <!-- Wrapper End-->
     <footer class="iq-footer">
             <div class="container-fluid">

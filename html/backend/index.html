@@ -239,219 +239,184 @@
           </div>
       </div>
     
-        <div class="content-page">
-     <div class="container-fluid">
-        <div class="row">
+      <div class="content-page">
+        <div class="container-fluid">
+          <div class="row">
             <div class="col-lg-4">
-                <div class="card card-transparent card-block card-stretch card-height border-none">
-                    <div class="card-body p-0 mt-lg-2 mt-0">
-                        <h3 class="mb-3" id="greeting"></h3>
-                        <p class="mb-0 mr-4">Your dashboard gives you views of key performance or business process.</p>
-                    </div>
-                    
-                    <script src="/html/assets/js/greeting.js"></script>
-                    
-                    
+              <div class="card card-transparent card-block card-stretch card-height border-none">
+                <div class="card-body p-0 mt-lg-2 mt-0">
+                  <h3 class="mb-3" id="greeting"></h3>
+                  <p class="mb-0 mr-4">Your dashboard gives you views of key performance or business process.</p>
                 </div>
+                <script src="/html/assets/js/greeting.js"></script>
+              </div>
             </div>
             <div class="col-lg-8">
-                <div class="row">
-                    <div class="col-lg-4 col-md-4">
-                        <div class="card card-block card-stretch card-height">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center mb-4 card-total-sale">
-                                    <div class="icon iq-icon-box-2 bg-info-light">
-                                        <img src="../assets/images/product/1.png" class="img-fluid" alt="image">
-                                    </div>
-                                    <div>
-                                        <p class="mb-2">Total Sales</p>
-                                        <h4 id="sales-amount">31.50</h4>
-                                    </div>
-                                </div>
-                                <div class="iq-progress-bar mt-2">
-                                    <span id="sales-progress" class="bg-info iq-progress progress-1" data-percent="85"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <script>
-                        // Sample data for total sales and target sales (You can change these values dynamically)
-                        const totalSales = 31.50; // Example: Total sales achieved
-                        const targetSales = 50.00; // Example: Target sales
-                    
-                        // Calculate the sales percentage
-                        const salesPercentage = (totalSales / targetSales) * 100;
-                    
-                        // Get elements to update the UI
-                        const salesAmountElement = document.getElementById('sales-amount');
-                        const salesProgressElement = document.getElementById('sales-progress');
-                    
-                        // Update the displayed total sales amount
-                        salesAmountElement.textContent = totalSales.toFixed(2); // Rounded to 2 decimal places
-                    
-                        // Update the progress bar percentage and styling
-                        salesProgressElement.style.width = `${salesPercentage}%`;
-                        salesProgressElement.setAttribute('data-percent', salesPercentage.toFixed(0)); // Display percentage inside progress bar
-                    </script>
-                    
-                    <div class="col-lg-4 col-md-4">
-                        <div class="card card-block card-stretch card-height">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center mb-4 card-total-sale">
-                                    <div class="icon iq-icon-box-2 bg-danger-light">
-                                        <img src="../assets/images/product/2.png" class="img-fluid" alt="image">
-                                    </div>
-                                    <div>
-                                        <p class="mb-2">Total Purchase</p>
-                                        <h4>$ 4598</h4>
-                                    </div>
-                                </div>
-                                <div class="iq-progress-bar mt-2">
-                                    <span class="bg-danger iq-progress progress-1" data-percent="70">
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4">
-                        <div class="card card-block card-stretch card-height">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center mb-4 card-total-sale">
-                                    <div class="icon iq-icon-box-2 bg-success-light">
-                                        <img src="../assets/images/product/3.png" class="img-fluid" alt="image">
-                                    </div>
-                                    <div>
-                                        <p class="mb-2">Total Expenses</p>
-                                        <h4>4589 M</h4>
-                                    </div>
-                                </div>
-                                <div class="iq-progress-bar mt-2">
-                                    <span class="bg-success iq-progress progress-1" data-percent="75">
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-          
-            <div class="col-lg-4">  
-                <div class="card card-block card-stretch card-height-helf">
+              <div class="row">
+                <div class="col-lg-4 col-md-4">
+                  <div class="card card-block card-stretch card-height">
                     <div class="card-body">
-                        <div class="d-flex align-items-top justify-content-between">
-                            <div class="">
-                                <p class="mb-0">Income</p>
-                                <h5>$ 98,7800 K</h5>
-                            </div>
-                            <div class="card-header-toolbar d-flex align-items-center">
-                                <div class="dropdown">
-                                    <span class="dropdown-toggle dropdown-bg btn" id="dropdownMenuButton003"
-                                        data-toggle="dropdown">
-                                        This Month<i class="ri-arrow-down-s-line ml-1"></i>
-                                    </span>
-                                    <div class="dropdown-menu dropdown-menu-right shadow-none"
-                                        aria-labelledby="dropdownMenuButton003">
-                                        <a class="dropdown-item" href="#">Year</a>
-                                        <a class="dropdown-item" href="#">Month</a>
-                                        <a class="dropdown-item" href="#">Week</a>
-                                    </div>
-                                </div>
-                            </div>
+                      <div class="d-flex align-items-center mb-4 card-total-sale">
+                        <div class="icon iq-icon-box-2 bg-info-light">
+                          <img src="../assets/images/product/1.png" class="img-fluid" alt="image">
                         </div>
-                        <div id="layout1-chart-3" class="layout-chart-1"></div>
+                        <div>
+                          <p class="mb-2">Total Sales</p>
+                          <h4 id="sales-amount">$ Loading...</h4> <!-- Initial value set to $0.00 -->
+                        </div>
+                      </div>
+                      <div class="iq-progress-bar mt-2">
+                        <span id="sales-progress" class="bg-info iq-progress progress-1" data-percent="85"></span>
+                      </div>
                     </div>
+                  </div>
                 </div>
-                <div class="card card-block card-stretch card-height-helf">
+      
+                <div class="col-lg-4 col-md-4">
+                  <div class="card card-block card-stretch card-height">
                     <div class="card-body">
-                        <div class="d-flex align-items-top justify-content-between">
-                            <div class="">
-                                <p class="mb-0">Expenses</p>
-                                <h5>$ 45,8956 K</h5>
-                            </div>
-                            <div class="card-header-toolbar d-flex align-items-center">
-                                <div class="dropdown">
-                                    <span class="dropdown-toggle dropdown-bg btn" id="dropdownMenuButton004"
-                                        data-toggle="dropdown">
-                                        This Month<i class="ri-arrow-down-s-line ml-1"></i>
-                                    </span>
-                                    <div class="dropdown-menu dropdown-menu-right shadow-none"
-                                        aria-labelledby="dropdownMenuButton004">
-                                        <a class="dropdown-item" href="#">Year</a>
-                                        <a class="dropdown-item" href="#">Month</a>
-                                        <a class="dropdown-item" href="#">Week</a>
-                                    </div>
-                                </div>
-                            </div>
+                      <div class="d-flex align-items-center mb-4 card-total-sale">
+                        <div class="icon iq-icon-box-2 bg-danger-light">
+                          <img src="../assets/images/product/2.png" class="img-fluid" alt="image">
                         </div>
-                        <div id="layout1-chart-4" class="layout-chart-2"></div>
+                        <div>
+                          <p class="mb-2">Total Purchase</p>
+                          <h4 id="totalPurchaseValue">$ Loading...</h4> <!-- Updated element for total purchase -->
+                        </div>
+                      </div>
+                      <div class="iq-progress-bar mt-2">
+                        <span class="bg-danger iq-progress progress-1" id="purchaseProgress" data-percent="0"></span>
+                      </div>
                     </div>
+                  </div>
                 </div>
-            </div>
-            <div class="col-lg-8">  
-                <div class="card card-block card-stretch card-height">
-                    <div class="card-header d-flex justify-content-between">
-                        <div class="header-title">
-                            <h4 class="card-title">Order Summary</h4>
-                        </div>                        
-                        <div class="card-header-toolbar d-flex align-items-center">
-                            <div class="dropdown">
-                                <span class="dropdown-toggle dropdown-bg btn" id="dropdownMenuButton005"
-                                    data-toggle="dropdown">
-                                    This Month<i class="ri-arrow-down-s-line ml-1"></i>
-                                </span>
-                                <div class="dropdown-menu dropdown-menu-right shadow-none"
-                                    aria-labelledby="dropdownMenuButton005">
-                                    <a class="dropdown-item" href="#">Year</a>
-                                    <a class="dropdown-item" href="#">Month</a>
-                                    <a class="dropdown-item" href="#">Week</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div> 
+      
+                <div class="col-lg-4 col-md-4">
+                  <div class="card card-block card-stretch card-height">
                     <div class="card-body">
-                        <div class="d-flex flex-wrap align-items-center mt-2">
-                            <div class="d-flex align-items-center progress-order-left">
-                                <div class="progress progress-round m-0 orange conversation-bar" data-percent="46">
-                                    <span class="progress-left">
-                                        <span class="progress-bar"></span>
-                                    </span>
-                                    <span class="progress-right">
-                                        <span class="progress-bar"></span>
-                                    </span>
-                                    <div class="progress-value text-secondary">46%</div>
-                                </div>
-                                <div class="progress-value ml-3 pr-5 border-right">
-                                    <h5>$12,6598</h5>
-                                    <p class="mb-0">Average Orders</p>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center ml-5 progress-order-right">
-                                <div class="progress progress-round m-0 primary conversation-bar" data-percent="46">
-                                    <span class="progress-left">
-                                        <span class="progress-bar"></span>
-                                    </span>
-                                    <span class="progress-right">
-                                        <span class="progress-bar"></span>
-                                    </span>
-                                    <div class="progress-value text-primary">46%</div>
-                                </div>
-                                <div class="progress-value ml-3">
-                                    <h5>$59,8478</h5>
-                                    <p class="mb-0">Top Orders</p>
-                                </div>
-                            </div>
+                      <div class="d-flex align-items-center mb-4 card-total-sale">
+                        <div class="icon iq-icon-box-2 bg-success-light">
+                          <img src="../assets/images/product/3.png" class="img-fluid" alt="image">
                         </div>
+                        <div>
+                          <p class="mb-2">Total Expenses</p>
+                          <h4 id="totalExpensesValue">$ Loading...</h4> <!-- Updated element for total expenses -->
+                        </div>
+                      </div>
+                      <div class="iq-progress-bar mt-2">
+                        <span class="bg-success iq-progress progress-1" id="expenseProgress" data-percent="0"></span>
+                      </div>
                     </div>
-                    <div class="card-body pt-0">
-                        <div id="layout1-chart-5"></div>
-                    </div>
+                  </div>
                 </div>
-            </div>
+              </div>
+            </div>     
+          </div>
+          <script type="module">
+            // Import Firebase SDKs
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+            import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
+      
+            // Firebase Configuration
+            const firebaseConfig = {
+              apiKey: "AIzaSyDEgnecR63RJ_pe-2r4pOnpEDv5qLUl2jU",
+              authDomain: "nurafiq-recycling.firebaseapp.com",
+              projectId: "nurafiq-recycling",
+              storageBucket: "nurafiq-recycling.firebasestorage.app",
+              messagingSenderId: "583278888482",
+              appId: "1:583278888482:web:c401301f1e08fb8ee4ac7b"
+            };
+      
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            const db = getFirestore(app);
+      
+            // Function to fetch and calculate total sales
+            async function fetchTotalSales() {
+              const salesCollection = collection(db, 'sales');
+              const salesSnapshot = await getDocs(salesCollection);
+              let totalSales = 0;
+      
+              salesSnapshot.forEach((doc) => {
+                const sale = doc.data();
+                totalSales += parseFloat(sale.totalAmount) || 0;
+              });
+      
+              // Update the Total Sales section in the UI
+              const totalSalesElement = document.getElementById('sales-amount');
+              totalSalesElement.textContent = `$${totalSales.toFixed(2)}`; // Format to 2 decimal places
+      
+              // Update progress bar (example calculation)
+              const salesProgress = document.getElementById('sales-progress');
+              const salesProgressPercent = Math.min((totalSales / 10000) * 100, 100); // Assuming 10,000 is the target
+              salesProgress.style.width = `${salesProgressPercent}%`;
+              salesProgress.setAttribute('data-percent', salesProgressPercent.toFixed(0));
+            }
+      
+            // Function to fetch and calculate total purchase
+            async function updateDashboardTotalPurchase() {
+              const totalPurchaseValueElement = document.getElementById('totalPurchaseValue');
+              const purchaseProgressElement = document.getElementById('purchaseProgress');
+      
+              try {
+                const purchaseCollection = collection(db, 'purchases');
+                const purchaseSnapshot = await getDocs(purchaseCollection);
+                let totalPurchaseAmount = 0;
+      
+                purchaseSnapshot.forEach((docSnapshot) => {
+                  const purchase = docSnapshot.data();
+                  const totalCost = parseFloat(purchase.totalCost) || 0;
+                  totalPurchaseAmount += totalCost;
+                });
+      
+                // Update the total purchase value in the dashboard
+                totalPurchaseValueElement.innerText = `$ ${totalPurchaseAmount.toFixed(2)}`;
+      
+                // Update the progress bar percentage (example calculation)
+                const progressPercent = Math.min((totalPurchaseAmount / 10000) * 100, 100); // Assuming 10,000 is the target
+                purchaseProgressElement.style.width = `${progressPercent}%`;
+                purchaseProgressElement.setAttribute('data-percent', progressPercent.toFixed(0));
+              } catch (error) {
+                console.error('Error fetching purchases:', error);
+                totalPurchaseValueElement.innerText = 'Error';
+                purchaseProgressElement.style.width = '0%';
+                purchaseProgressElement.setAttribute('data-percent', '0');
+              }
+            }
+      
+            // Function to fetch and calculate total expenses
+            async function fetchExpenses() {
+              const totalExpenseValueElement = document.getElementById('totalExpensesValue');
+              const expenseProgressElement = document.getElementById('expenseProgress');
+              const expensesCollection = collection(db, 'expenses');
+              const expensesSnapshot = await getDocs(expensesCollection);
+              let totalExpenseAmount = 0;
+      
+              expensesSnapshot.forEach((docSnapshot) => {
+                const expense = docSnapshot.data();
+                const expenseAmount = parseFloat(expense.expenseAmount) || 0;
+                totalExpenseAmount += expenseAmount;
+              });
+      
+              // Update the total expense value in the dashboard
+              totalExpenseValueElement.innerText = `$ ${totalExpenseAmount.toFixed(2)}`;
+      
+              // Update the progress bar percentage (example calculation)
+              const progressPercent = Math.min((totalExpenseAmount / 10000) * 100, 100); // Assuming 10,000 is the target
+              expenseProgressElement.style.width = `${progressPercent}%`;
+              expenseProgressElement.setAttribute('data-percent', progressPercent.toFixed(0));
+            }
+      
+            // Call the functions on page load
+            fetchTotalSales();
+            updateDashboardTotalPurchase();
+            fetchExpenses();
+          </script>
+      
         </div>
-        <!-- Page end  -->
-    </div>
       </div>
+      
+      
     </div>
     <!-- Wrapper End-->
     <footer class="iq-footer">

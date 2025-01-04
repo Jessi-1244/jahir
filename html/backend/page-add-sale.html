@@ -258,266 +258,209 @@
           </div>
       </div>     
 
-       <div class="content-page">
-
-     <div class="container-fluid add-form-list">
-
-       <div class="row">
-    <div class="col-sm-12">
-        <div class="card">
-            <div class="card-header d-flex justify-content-between">
-                <div class="header-title">
+      <div class="content-page">
+        <div class="container-fluid add-form-list">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="card">
+                <div class="card-header d-flex justify-content-between">
+                  <div class="header-title">
                     <h4 class="card-title">Add Sale</h4>
+                  </div>
                 </div>
-            </div>
-            
-            <div class="card-body">
-                <form id="addSaleForm" action="page-list-sale.html" data-toggle="validator">
+      
+                <div class="card-body">
+                  <form id="addSaleForm" action="page-list-sale.html" data-toggle="validator">
                     <div class="row">
-                        <!-- Date of Sale -->
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="saleDate">Date of Sale *</label>
-                                <input type="date" class="form-control" id="saleDate" name="saleDate" required>
-                            </div>
+                      <!-- Date of Sale -->
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="saleDate">Date of Sale *</label>
+                          <input type="date" class="form-control" id="saleDate" name="saleDate" required>
                         </div>
-                
-                        <!-- Customer Name -->
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="customerName">Customer / Company Name *</label>
-                                <input type="text" class="form-control" id="customerName" name="customerName" placeholder="Enter Customer/Company Name" required>
-                                <div class="help-block with-errors"></div>
-                            </div>
+                      </div>
+      
+                      <!-- Customer Name -->
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="customerName">Customer / Company Name *</label>
+                          <input type="text" class="form-control" id="customerName" name="customerName" placeholder="Enter Customer/Company Name" required>
+                          <div class="help-block with-errors"></div>
                         </div>
-                
-                        <!-- Customer Phone -->
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="customerPhone">Phone No</label>
-                                <input type="tel" class="form-control" id="customerPhone" name="customerPhone" placeholder="Enter Phone Number">
-                            </div>
+                      </div>
+      
+                      <!-- Customer Phone -->
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="customerPhone">Phone No</label>
+                          <input type="tel" class="form-control" id="customerPhone" name="customerPhone" placeholder="Enter Phone Number">
                         </div>
-                
-                        <!-- Product Name (Dropdown with Other option) -->
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="productName">Product Name *</label>
-                                <select name="productName" id="productName" class="form-control" required>
-                                    <option value="">Select Product</option>
-                                    <option value="iron">Iron</option>
-                                    <option value="copper">Copper</option>
-                                    <option value="brass">Brass</option>
-                                    <option value="aluminum">Aluminum</option>
-                                    <option value="gearbox">Gearbox</option>
-                                    <option value="Engine">Engine</option>
-                                    <option value="other">Other</option>
-                                </select>
-                                <!-- "Other" product input field -->
-                                <input type="text" class="form-control mt-2" id="otherProduct" name="otherProduct" placeholder="Specify Product" style="display:none;" />
-                            </div>
+                      </div>
+      
+                      <!-- Product Name (Dropdown with Other option) -->
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="productName">Product Name *</label>
+                          <select name="productName" id="productName" class="form-control" required>
+                            <option value="">Select Product</option>
+                            <option value="iron">Iron</option>
+                            <option value="copper">Copper</option>
+                            <option value="brass">Brass</option>
+                            <option value="aluminum">Aluminum</option>
+                            <option value="gearbox">Gearbox</option>
+                            <option value="Engine">Engine</option>
+                            <option value="other">Other</option>
+                          </select>
+                          <!-- "Other" product input field -->
+                          <input type="text" class="form-control mt-2" id="otherProduct" name="otherProduct" placeholder="Specify Product" style="display:none;" />
                         </div>
-                
-                        <!-- Quantity -->
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="quantity">Quantity *</label>
-                                <input type="number" class="form-control" id="quantity" name="quantity" placeholder="Enter Quantity" required>
-                            </div>
+                      </div>
+      
+                      <!-- Quantity -->
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="quantity">Quantity *</label>
+                          <input type="number" class="form-control" id="quantity" name="quantity" placeholder="Enter Quantity" required>
                         </div>
-                
-                        <!-- Total Amount -->
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="TotalAmount">Total Amount *</label>
-                                <input type="number" class="form-control" id="TotalAmount" name="TotalAmount" placeholder="Enter Total Amount" required>
-                            </div>
+                      </div>
+      
+                      <!-- Total Amount -->
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="TotalAmount">Total Amount *</label>
+                          <input type="number" class="form-control" id="TotalAmount" name="TotalAmount" placeholder="Enter Total Amount" required>
                         </div>
-                
-                        <!-- Payment Method -->
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="paymentMethod">Payment Method *</label>
-                                <select name="paymentMethod" id="paymentMethod" class="form-control" required>
-                                    <option value="">Select Payment Method</option>
-                                    <option value="cash">Cash</option>
-                                    <option value="credit">Credit</option>
-                                    <option value="bank_transfer">Bank Transfer</option>
-                                    <option value="online">Online Payment</option>
-                                </select>
-                            </div>
+                      </div>
+      
+                      <!-- Payment Method -->
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="paymentMethod">Payment Method *</label>
+                          <select name="paymentMethod" id="paymentMethod" class="form-control" required>
+                            <option value="">Select Payment Method</option>
+                            <option value="cash">Cash</option>
+                            <option value="credit">Credit</option>
+                            <option value="bank_transfer">Bank Transfer</option>
+                            <option value="online">Online Payment</option>
+                          </select>
                         </div>
-                
-                        <!-- Customer Address -->
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="customerAddress">Customer/Company Address *</label>
-                                <input type="text" class="form-control" id="customerAddress" name="customerAddress" placeholder="Enter Customer/Company Address" required>
-                            </div>
+                      </div>
+      
+                      <!-- Customer Address -->
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="customerAddress">Customer/Company Address *</label>
+                          <input type="text" class="form-control" id="customerAddress" name="customerAddress" placeholder="Enter Customer/Company Address" required>
                         </div>
-                
-                        <!-- Notes (Rich Text Editor) -->
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="note">Note </label>
-                                <div id="quill-toolbar">
-                                    <button class="ql-bold" data-toggle="tooltip" data-placement="bottom" title="Bold"></button>
-                                    <button class="ql-underline" data-toggle="tooltip" data-placement="bottom" title="Underline"></button>
-                                    <button class="ql-italic" data-toggle="tooltip" data-placement="bottom" title="Italic"></button>
-                                    <button class="ql-image" data-toggle="tooltip" data-placement="bottom" title="Upload Image"></button>
-                                    <button class="ql-code-block" data-toggle="tooltip" data-placement="bottom" title="Code Block"></button>
-                                </div>
-                                <div id="quill-container">
-                                    <div id="note" class="quill-editor"></div>
-                                </div>
-                            </div>
+                      </div>
+      
+                      <!-- Notes (Rich Text Editor) -->
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="note">Note </label>
+                          <div id="quill-toolbar">
+                            <button class="ql-bold" data-toggle="tooltip" data-placement="bottom" title="Bold"></button>
+                            <button class="ql-underline" data-toggle="tooltip" data-placement="bottom" title="Underline"></button>
+                            <button class="ql-italic" data-toggle="tooltip" data-placement="bottom" title="Italic"></button>
+                            <button class="ql-image" data-toggle="tooltip" data-placement="bottom" title="Upload Image"></button>
+                            <button class="ql-code-block" data-toggle="tooltip" data-placement="bottom" title="Code Block"></button>
+                          </div>
+                          <div id="quill-container">
+                            <div id="note" class="quill-editor"></div>
+                          </div>
                         </div>
+                      </div>
                     </div>
-                
+      
                     <!-- Submit and Reset buttons -->
                     <button type="submit" class="btn btn-primary mr-2">Add Sale</button>
                     <button type="reset" class="btn btn-danger">Reset</button>
-                </form>
-                
-                <script>
-                    // JavaScript to handle "Other" product selection
-                    document.getElementById('productName').addEventListener('change', function() {
-                        var otherProductField = document.getElementById('otherProduct');
-                        // Show "Other" input field if the selected value is "Other", hide otherwise
-                        if (this.value === 'other') {
-                            otherProductField.style.display = 'block';
-                        } else {
-                            otherProductField.style.display = 'none';
-                        }
-                    });
-                
-                    // Initialize Quill editor for Notes
-                    var quill = new Quill('#note', {
-                        theme: 'snow',
-                        modules: {
-                            toolbar: '#quill-toolbar'
-                        }
-                    });
-                </script>
-                
-                
-                <script>
-                    // Initialize Quill editor for Notes
-                    var quill = new Quill('#note', {
-                        theme: 'snow',
-                        modules: {
-                            toolbar: '#quill-toolbar'
-                        }
-                    });
-                </script>
-                
-
-<script>
-    // Show/hide "Other" product input based on selection
-    document.getElementById('productName').addEventListener('change', function() {
-        var otherProductField = document.getElementById('otherProduct');
-        if (this.value === 'other') {
-            otherProductField.style.display = 'block';
-        } else {
-            otherProductField.style.display = 'none';
-        }
-    });
-
-    // Initialize Quill editor for Notes
-    var quill = new Quill('#note', {
-        theme: 'snow',
-        modules: {
-            toolbar: '#quill-toolbar'
-        }
-    });
-</script>
-
-                
-                <script>
-                    // Show/Hide "Other" product input field based on selection
-                    document.getElementById('agent').addEventListener('change', function() {
-                        var otherAgentField = document.getElementById('other_agent');
-                        if (this.value === 'other') {
-                            otherAgentField.style.display = 'block'; // Show the input field for "Other" product
-                        } else {
-                            otherAgentField.style.display = 'none'; // Hide the input field for "Other" product
-                        }
-                    });
-                </script>
-                
+                  </form>
+                </div>
+              </div>
             </div>
+          </div>
+      
+          <!-- Firebase Integration -->
+          <script type="module">
+            // Import Firebase SDKs
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+            import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
+      
+            // Firebase Configuration
+            const firebaseConfig = {
+              apiKey: "AIzaSyDEgnecR63RJ_pe-2r4pOnpEDv5qLUl2jU",
+              authDomain: "nurafiq-recycling.firebaseapp.com",
+              projectId: "nurafiq-recycling",
+              storageBucket: "nurafiq-recycling.firebasestorage.app",
+              messagingSenderId: "583278888482",
+              appId: "1:583278888482:web:c401301f1e08fb8ee4ac7b"
+            };
+      
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            const db = getFirestore(app);
+      
+            // Handle form submission
+            document.getElementById('addSaleForm').addEventListener('submit', async (event) => {
+              event.preventDefault(); // Prevent default form submission
+      
+              // Get form values
+              const saleDate = document.getElementById('saleDate').value;
+              const customerName = document.getElementById('customerName').value;
+              const customerPhone = document.getElementById('customerPhone').value;
+              const productName = document.getElementById('productName').value === 'other'
+                ? document.getElementById('otherProduct').value
+                : document.getElementById('productName').value;
+              const quantity = document.getElementById('quantity').value;
+              const totalAmount = document.getElementById('TotalAmount').value;
+              const paymentMethod = document.getElementById('paymentMethod').value;
+              const customerAddress = document.getElementById('customerAddress').value;
+      
+              try {
+                // Add data to Firestore
+                await addDoc(collection(db, 'sales'), {
+                  saleDate,
+                  customerName,
+                  customerPhone,
+                  productName,
+                  quantity,
+                  totalAmount,
+                  paymentMethod,
+                  customerAddress
+                });
+                alert('Sale added successfully!');
+                event.target.reset(); // Reset the form after successful submission
+              } catch (error) {
+                console.error('Error adding sale: ', error);
+                alert('Failed to add sale. Check console for details.');
+              }
+            });
+          </script>
+      
+          <!-- Quill Editor Initialization -->
+          <script>
+            // Show/hide "Other" product input based on selection
+            document.getElementById('productName').addEventListener('change', function () {
+              var otherProductField = document.getElementById('otherProduct');
+              if (this.value === 'other') {
+                otherProductField.style.display = 'block';
+              } else {
+                otherProductField.style.display = 'none';
+              }
+            });
+      
+            // Initialize Quill editor for Notes
+            var quill = new Quill('#note', {
+              theme: 'snow',
+              modules: {
+                toolbar: '#quill-toolbar'
+              }
+            });
+          </script>
         </div>
-        <!-- Firebase Integration -->
-<script type="module">
-    // Import Firebase SDKs
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-    import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
-
-    // Firebase Configuration
-    const firebaseConfig = {
-      apiKey: "AIzaSyDEgnecR63RJ_pe-2r4pOnpEDv5qLUl2jU",
-      authDomain: "nurafiq-recycling.firebaseapp.com",
-      projectId: "nurafiq-recycling",
-      storageBucket: "nurafiq-recycling.firebasestorage.app",
-      messagingSenderId: "583278888482",
-      appId: "1:583278888482:web:c401301f1e08fb8ee4ac7b"
-    };
-     // Initialize Firebase
-     const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-
-     // Handle form submission
-  document.getElementById('addSaleForm').addEventListener('submit', async (event) => {
-    event.preventDefault(); // Prevent default form submission
-
-     // Get form values
-     const saleDate = document.getElementById('saleDate').value;
-    const customerName = document.getElementById('customerName').value;
-    const customerPhone = document.getElementById('customerPhone').value;
-    const productName = document.getElementById('agent').value === 'other'
-      ? document.getElementById('other_agent').value
-      : document.getElementById('agent').value;
-    const quantity = document.getElementById('quantity').value;
-    const totalAmount = document.getElementById('TotalAmount').value;
-    const paymentMethod = document.getElementById('paymentMethod').value;
-    const customerAddress = document.getElementById('customerAddress').value;
-
-      try {
-        // Add data to Firestore
-        await addDoc(collection(db, 'sales'), {
-          saleDate,
-          customerName,
-          customerPhone,
-          productName,
-          quantity,
-          totalAmount,
-          paymentMethod,
-          customerAddress
-        });
-        alert('Sale added successfully!');
-        event.target.reset(); // Reset the form after successful submission
-      } catch (error) {
-        console.error('Error adding sale: ', error);
-        alert('Failed to add sale. Check console for details.');
-      }
-    });
-
-  
-  </script>
-
-
-
-
-  </div>
-</div>
-
-<script src="addSale.js"></script>
-
-
-
-        <!-- Page end  -->
-    </div>
       </div>
+      
     </div>
     <!-- Wrapper End-->
     <footer class="iq-footer">

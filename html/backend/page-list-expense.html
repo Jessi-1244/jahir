@@ -339,12 +339,17 @@
                 </div>
             </div>
         </div>
-    
+        <div class="d-flex justify-content-between mb-4">
+            <h4 class="mb-3">Expense List</h4>
+            <p class="mb-0" id="totalExpense">Total Expense:</p>
+        </div>
+        
+        
         <!-- Firebase Integration -->
         <script type="module">
             import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
             import { getFirestore, collection, getDocs, doc, getDoc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
-    
+            
             // Firebase Configuration
             const firebaseConfig = {
                 apiKey: "AIzaSyDEgnecR63RJ_pe-2r4pOnpEDv5qLUl2jU",
@@ -354,22 +359,26 @@
                 messagingSenderId: "583278888482",
                 appId: "1:583278888482:web:c401301f1e08fb8ee4ac7b"
             };
-    
+            
             // Initialize Firebase
             const app = initializeApp(firebaseConfig);
             const db = getFirestore(app);
-    
+            
             // Fetch and display expense data
             async function fetchExpenses() {
                 const expenseTableBody = document.getElementById('expenseTableBody');
+                const totalExpenseElement = document.getElementById('totalExpense');
                 const expensesCollection = collection(db, 'expenses');
                 const expensesSnapshot = await getDocs(expensesCollection);
-    
+        
                 // Clear existing data
                 expenseTableBody.innerHTML = '';
-    
+                let totalExpense = 0;
+        
                 expensesSnapshot.forEach((docSnapshot) => {
                     const expense = docSnapshot.data();
+                    totalExpense += parseFloat(expense.expenseAmount) || 0; // Add amount to total
+        
                     const row = document.createElement('tr');
                     row.innerHTML = `
                         <td>${expense.expenseDate || 'N/A'}</td>
@@ -391,17 +400,20 @@
                     `;
                     expenseTableBody.appendChild(row);
                 });
-    
+        
+                // Update the total expense
+                totalExpenseElement.textContent = totalExpense.toFixed(2); // Format to 2 decimal places
+        
                 // Add event listeners to action buttons
                 addActionListeners();
             }
-    
+        
             // Function to add event listeners for View, Edit, Delete actions
             function addActionListeners() {
                 const viewButtons = document.querySelectorAll('a[data-id].badge-info');
                 const editButtons = document.querySelectorAll('a[data-id].bg-success');
                 const deleteButtons = document.querySelectorAll('a[data-id].bg-warning');
-    
+        
                 viewButtons.forEach(button => {
                     button.addEventListener('click', async (e) => {
                         e.preventDefault();
@@ -409,7 +421,7 @@
                         await viewExpense(docId);
                     });
                 });
-    
+        
                 editButtons.forEach(button => {
                     button.addEventListener('click', async (e) => {
                         e.preventDefault();
@@ -417,7 +429,7 @@
                         await editExpense(docId);
                     });
                 });
-    
+        
                 deleteButtons.forEach(button => {
                     button.addEventListener('click', async (e) => {
                         e.preventDefault();
@@ -426,46 +438,46 @@
                     });
                 });
             }
-    
+        
             // View Expense Details
             async function viewExpense(docId) {
                 const docRef = doc(db, 'expenses', docId);
                 const docSnapshot = await getDoc(docRef);
                 const expense = docSnapshot.data();
-    
+        
                 // Fill in the modal with the expense details
                 document.getElementById('viewDate').textContent = expense.expenseDate || 'N/A';
                 document.getElementById('viewCategory').textContent = expense.expenseCategory || 'N/A';
                 document.getElementById('viewTotalAmount').textContent = expense.expenseAmount || 'N/A';
                 document.getElementById('viewDetails').textContent = expense.note || 'N/A';
-    
+        
                 // Show the modal
                 const modal = new bootstrap.Modal(document.getElementById('viewExpenseModal'));
                 modal.show();
             }
-    
+        
             // Edit Expense
             async function editExpense(docId) {
                 const docRef = doc(db, 'expenses', docId);
                 const docSnapshot = await getDoc(docRef);
                 const expense = docSnapshot.data();
-    
+        
                 // Populate the modal fields with current expense data
                 document.getElementById('editExpenseDate').value = expense.expenseDate || '';
                 document.getElementById('editExpenseCategory').value = expense.expenseCategory || '';
                 document.getElementById('editExpenseAmount').value = expense.expenseAmount || '';
                 document.getElementById('editExpenseDetails').value = expense.note || '';
-    
+        
                 // Show the edit modal
                 const modal = new bootstrap.Modal(document.getElementById('editExpenseModal'));
                 modal.show();
-    
+        
                 // Save changes when the user clicks the "Save changes" button
                 document.getElementById('saveEditButton').onclick = async () => {
                     await saveEditedExpense(docId);
                 };
             }
-    
+        
             // Save Edited Expense
             async function saveEditedExpense(docId) {
                 const updatedExpense = {
@@ -474,20 +486,20 @@
                     expenseAmount: document.getElementById('editExpenseAmount').value,
                     note: document.getElementById('editExpenseDetails').value
                 };
-    
+        
                 const docRef = doc(db, 'expenses', docId);
-    
+        
                 try {
                     // Try to update the document in Firestore
                     await updateDoc(docRef, updatedExpense);
-    
+        
                     // Success: Refresh the table
                     document.getElementById('expenseTableBody').innerHTML = ''; // Clear the table
                     fetchExpenses(); // Refresh the table
-    
+        
                     // Show success alert
                     alert('Expense updated successfully!');
-    
+        
                     // Close the edit modal
                     const modal = bootstrap.Modal.getInstance(document.getElementById('editExpenseModal'));
                     modal.hide();
@@ -495,7 +507,7 @@
                     console.error("Error updating document:", error);
                 }
             }
-    
+        
             // Delete Expense
             async function deleteExpense(docId) {
                 const docRef = doc(db, 'expenses', docId);
@@ -509,10 +521,11 @@
                     alert('Error deleting expense');
                 }
             }
-    
+        
             // Fetch expenses on page load
             fetchExpenses();
         </script>
+        
     </div>
     
     
