@@ -11,8 +11,12 @@
       <link rel="stylesheet" href="../assets/css/backend.css?v=1.0.0">
       <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
       <link rel="stylesheet" href="../assets/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css">
-      <link rel="stylesheet" href="../assets/vendor/remixicon/fonts/remixicon.css">  </head>
-  <body class="  ">
+      <link rel="stylesheet" href="../assets/vendor/remixicon/fonts/remixicon.css">  
+      <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js"></script>
+      <script type="module" src="authcheck.js"></script>    
+
+     </head>  <body class="  ">
     <!-- loader Start -->
     <div id="loading">
           <div id="loading-center">
@@ -103,7 +107,7 @@
                         <!-- Submenu for Expense -->
                         <ul id="expense" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                             <li class="">
-                                <a href="#">
+                              <a href="../backend/page-list-expense.html">
                                     <i class="las la-minus"></i><span>List Expenses</span>
                                 </a>
                             </li>
@@ -163,77 +167,60 @@
                                   </li>
                           </ul>
                       </li>
-                      <li class="">
-                          <a href="../backend/page-report.html" class="">
-                              <svg class="svg-icon" id="p-dash7" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline>
-                              </svg>
-                              <span class="ml-4">Reports</span>
-                          </a>
-                          <ul id="reports" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                          </ul>
-                      </li>
+                      <li class="nav-item">
+                        <a href="#" class="nav-link collapsed" data-toggle="collapse" aria-expanded="false" data-target="#rep-submenu">
+                            <svg class="svg-icon" id="p-dash5" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                                <line x1="1" y1="10" x2="23" y2="10"></line>
+                            </svg>
+                            <span class="ml-4">Reports</span>
+                            <svg class="svg-icon iq-arrow-right arrow-active" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="10 15 15 20 20 15"></polyline>
+                                <path d="M4 4h7a4 4 0 0 1 4 4v12"></path>
+                            </svg>
+                        </a>
+                        <!-- Submenu for Expense -->
+                        <ul id="rep-submenu" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                            <li class="">
+                                <a href="purchasereport.html">
+                                    <i class="las la-minus"></i><span>Purchase Report</span>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href="../backend/salesreport.html">
+                                    <i class="las la-minus"></i><span>Sales Report</span>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href="../backend/expensereport.html">
+                                    <i class="las la-minus"></i><span>Expense Report</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                  
               <div class="p-3"></div>
           </div>
-          </div>      <div class="iq-top-navbar">
-          <div class="iq-navbar-custom">
-              <nav class="navbar navbar-expand-lg navbar-light p-0">
-                  <div class="iq-navbar-logo d-flex align-items-center justify-content-between">
-                      <i class="ri-menu-line wrapper-menu"></i>
-                      <a href="../backend/index.html" class="header-logo">
-                          <img src="../assets/images/logo.png" class="img-fluid rounded-normal" alt="logo">
-                          <h5 class="logo-title ml-3">Nur&Afiq Recycling</h5>
-      
-                      </a>
-                  </div>
-                  <div class="iq-search-bar device-search">
-                      <form action="#" class="searchbox">
-                          <a class="search-link" href="#"><i class="ri-search-line"></i></a>
-                          <input type="text" class="text search-input" placeholder="Search here...">
-                      </form>
-                  </div>
-                  <div class="d-flex align-items-center">
-                      <button class="navbar-toggler" type="button" data-toggle="collapse"
-                          data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                          aria-label="Toggle navigation">
-                          <i class="ri-menu-3-line"></i>
-                      </button>
-                      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                          <ul class="navbar-nav ml-auto navbar-list align-items-center">
-             
-                              <li class="nav-item nav-icon dropdown caption-content">
-                                  <a href="#" class="search-toggle dropdown-toggle" id="dropdownMenuButton4"
-                                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                      <img src="../assets/images/user/1.png" class="img-fluid rounded" alt="user">
-                                  </a>
-                                  <div class="iq-sub-dropdown dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                      <div class="card shadow-none m-0">
-                                          <div class="card-body p-0 text-center">
-                                              <div class="media-body profile-detail text-center">
-                                                  <img src="../assets/images/page-img/profile-bg.jpg" alt="profile-bg"
-                                                      class="rounded-top img-fluid mb-4">
-                                                  <img src="../assets/images/user/1.png" alt="profile-img"
-                                                      class="rounded profile-img img-fluid avatar-70">
-                                              </div>
-                                              <div class="p-3">
-                                                  <h5 class="mb-1">JoanDuo@property.com</h5>
-                                                  <p class="mb-0">Since 10 march, 2020</p>
-                                                  <div class="d-flex align-items-center justify-content-center mt-3">
-                                                      <a href="../app/user-profile.html" class="btn border mr-2">Profile</a>
-                                                      <a href="auth-sign-in.html" class="btn border">Sign Out</a>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </li>
-                          </ul>
-                      </div>
-                  </div>
-              </nav>
-          </div>
-      </div>
+          </div>    
+          <div class="iq-top-navbar">
+            <div class="iq-navbar-custom">
+                <nav class="navbar navbar-expand-lg navbar-light p-0">
+                    <div class="d-flex align-items-center justify-content-end w-100">
+                        <!-- Logout button -->
+                        <button class="btn btn-primary" id="logoutButton"
+                        style="background-color: #34bcec; 
+                               border-color: #34bcec; 
+                               border-radius: 5px; 
+                               padding: 10px 20px; 
+                               margin-top: 20px; 
+                               margin-bottom: 20px; 
+                               color: white;">
+                    Logout
+                </button>
+                    </div>
+                </nav>
+            </div>
+        </div>
       <div class="modal fade" id="new-order" tabindex="-1" role="dialog" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">

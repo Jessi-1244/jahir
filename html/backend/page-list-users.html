@@ -12,8 +12,11 @@
       <link rel="stylesheet" href="../assets/css/backend.css?v=1.0.0">
       <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
       <link rel="stylesheet" href="../assets/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css">
-      <link rel="stylesheet" href="../assets/vendor/remixicon/fonts/remixicon.css">  </head>
-  <body class="  ">
+      <link rel="stylesheet" href="../assets/vendor/remixicon/fonts/remixicon.css">  
+      <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js"></script>
+      <script type="module" src="authcheck.js"></script>    
+     </head>  <body class="  ">
     <!-- loader Start -->
     <div id="loading">
           <div id="loading-center">
@@ -157,186 +160,252 @@
                                   </li>
                           </ul>
                       </li>
-                      <li class="">
-                          <a href="../backend/page-report.html" class="">
-                              <svg class="svg-icon" id="p-dash7" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline>
-                              </svg>
-                              <span class="ml-4">Reports</span>
-                          </a>
-                          <ul id="reports" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                          </ul>
-                      </li>
+                      <li class="nav-item">
+                        <a href="#" class="nav-link collapsed" data-toggle="collapse" aria-expanded="false" data-target="#rep-submenu">
+                            <svg class="svg-icon" id="p-dash5" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                                <line x1="1" y1="10" x2="23" y2="10"></line>
+                            </svg>
+                            <span class="ml-4">Reports</span>
+                            <svg class="svg-icon iq-arrow-right arrow-active" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="10 15 15 20 20 15"></polyline>
+                                <path d="M4 4h7a4 4 0 0 1 4 4v12"></path>
+                            </svg>
+                        </a>
+                        <!-- Submenu for Expense -->
+                        <ul id="rep-submenu" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                            <li class="">
+                                <a href="purchasereport.html">
+                                    <i class="las la-minus"></i><span>Purchase Report</span>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href="../backend/salesreport.html">
+                                    <i class="las la-minus"></i><span>Sales Report</span>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href="../backend/expensereport.html">
+                                    <i class="las la-minus"></i><span>Expense Report</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
 
                   </ul>
               </nav>
             
               <div class="p-3"></div>
           </div>
-          </div>      <div class="iq-top-navbar">
-          <div class="iq-navbar-custom">
-              <nav class="navbar navbar-expand-lg navbar-light p-0">
-                  <div class="iq-navbar-logo d-flex align-items-center justify-content-between">
-                      <i class="ri-menu-line wrapper-menu"></i>
-                      <a href="../backend/index.html" class="header-logo">
-                          <img src="../assets/images/logo.png" class="img-fluid rounded-normal" alt="logo">
-                          <h5 class="logo-title ml-3">Nur&Afiq Recycling</h5>
-      
-                      </a>
-                  </div>
-                  <div class="iq-search-bar device-search">
-                      <form action="#" class="searchbox">
-                          <a class="search-link" href="#"><i class="ri-search-line"></i></a>
-                          <input type="text" class="text search-input" placeholder="Search here...">
-                      </form>
-                  </div>
-                  <div class="d-flex align-items-center">
-                      <button class="navbar-toggler" type="button" data-toggle="collapse"
-                          data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                          aria-label="Toggle navigation">
-                          <i class="ri-menu-3-line"></i>
-                      </button>
-                      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                          <ul class="navbar-nav ml-auto navbar-list align-items-center">
-                             
-                              <li class="nav-item nav-icon dropdown caption-content">
-                                  <a href="#" class="search-toggle dropdown-toggle" id="dropdownMenuButton4"
-                                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                      <img src="../assets/images/user/1.png" class="img-fluid rounded" alt="user">
-                                  </a>
-                                  <div class="iq-sub-dropdown dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                      <div class="card shadow-none m-0">
-                                          <div class="card-body p-0 text-center">
-                                              <div class="media-body profile-detail text-center">
-                                                  <img src="../assets/images/page-img/profile-bg.jpg" alt="profile-bg"
-                                                      class="rounded-top img-fluid mb-4">
-                                                  <img src="../assets/images/user/1.png" alt="profile-img"
-                                                      class="rounded profile-img img-fluid avatar-70">
-                                              </div>
-                                              <div class="p-3">
-                                                  <h5 class="mb-1">JoanDuo@property.com</h5>
-                                                  <p class="mb-0">Since 10 march, 2020</p>
-                                                  <div class="d-flex align-items-center justify-content-center mt-3">
-                                                      <a href="../app/user-profile.html" class="btn border mr-2">Profile</a>
-                                                      <a href="auth-sign-in.html" class="btn border">Sign Out</a>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </li>
-                          </ul>
-                      </div>
-                  </div>
-              </nav>
-          </div>
-      </div>
-      <div class="modal fade" id="new-order" tabindex="-1" role="dialog" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                  <div class="modal-body">
-                      <div class="popup text-left">
-                          <h4 class="mb-3">New Order</h4>
-                          <div class="content create-workform bg-body">
-                              <div class="pb-3">
-                                  <label class="mb-2">Email</label>
-                                  <input type="text" class="form-control" placeholder="Enter Name or Email">
-                              </div>
-                              <div class="col-lg-12 mt-4">
-                                  <div class="d-flex flex-wrap align-items-ceter justify-content-center">
-                                      <div class="btn btn-primary mr-4" data-dismiss="modal">Cancel</div>
-                                      <div class="btn btn-outline-primary" data-dismiss="modal">Create</div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>   
-      
+          </div>      
+   
+          <div class="iq-top-navbar">
+            <div class="iq-navbar-custom">
+                <nav class="navbar navbar-expand-lg navbar-light p-0">
+                    <div class="d-flex align-items-center justify-content-end w-100">
+                        <!-- Logout button -->
+                        <button class="btn btn-primary" id="logoutButton"
+                        style="background-color: #34bcec; 
+                               border-color: #34bcec; 
+                               border-radius: 5px; 
+                               padding: 10px 20px; 
+                               margin-top: 20px; 
+                               margin-bottom: 20px; 
+                               color: white;">
+                    Logout
+                </button>
+                        <!-- Add Sale button -->
+                        <a href="page-add-users.html"  class="btn btn-primary add-list ml-3" 
+                            style="background-color: #34bcec; 
+                                   border-color: #34bcec; 
+                                   border-radius: 5px; 
+                                   padding: 10px 20px; 
+                                   margin-top: 20px; 
+                                   margin-bottom: 20px; 
+                                   color: white;">
+                            Add Workers
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </div>
        
       
-      <div class="content-page">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
-                        <div>
-                            <h4 class="mb-3">Workers List</h4>
-                            <p class="mb-0">A dashboard provides you an overview of Workers list with access to the most important data,<br>
-                             functions, and controls. </p>
+        <div class="content-page">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
+                            <div>
+                                <h4 class="mb-3">Worker List</h4>
+                                <p class="mb-0">Manage and monitor workers easily in one central place while keeping track of their roles and activities.</p>
+                            </div>
                         </div>
-                        <a href="page-add-users.html" class="btn btn-primary add-list"><i class="las la-plus mr-3"></i>Add Workers</a>
                     </div>
-                </div>
-                <div class="col-lg-12">
-                    <div class="table-responsive rounded mb-3">
-                        <table class="data-table table mb-0 tbl-server-info">
-                            <thead class="bg-white text-uppercase">
-                                <tr class="ligth ligth-data">
-                                    <th>Name</th>
-                                    <th>Phone No</th>
-                                    <th>Passport No</th>
-                                    <th>IC No</th>
-                                    <th>Licence No</th>
-                                    <th>Status</th>
-                                    <th>Work</th>
-                                    <th>Salary</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody class="ligth-body" id="workersTableBody"></tbody>
-                        </table>
+                    <div class="col-lg-12">
+                        <div class="table-responsive rounded mb-3">
+                            <table class="data-table table mb-0 tbl-server-info">
+                                <thead class="bg-white text-uppercase">
+                                    <tr class="ligth ligth-data">
+                                        <th></th>
+                                        <th>Name</th>
+                                        <th>Phone No</th>
+                                        <th>Passport No</th>
+                                        <th>IC Number</th>
+                                        <th>Work Department</th>
+                                        <th>Salary</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="light-body" id="workersTableBody">
+                                    <!-- Worker rows will be inserted here -->
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
+        
+            <!-- View Worker Modal -->
+            <div class="modal fade" id="viewWorkerModal" tabindex="-1" role="dialog" aria-labelledby="viewWorkerModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="viewWorkerModalLabel">View Worker Details</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p><strong>Name:</strong> <span id="viewWorkerName"></span></p>
+                            <p><strong>Phone:</strong> <span id="viewWorkerPhone"></span></p>
+                            <p><strong>Passport Number:</strong> <span id="viewWorkerPassport"></span></p>
+                            <p><strong>IC Number:</strong> <span id="viewWorkerIC"></span></p>
+                            <p><strong>Work Department:</strong> <span id="viewWorkerWork"></span></p>
+                            <p><strong>Salary:</strong> <span id="viewWorkerSalary"></span></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Edit Worker Modal -->
+            <div class="modal fade" id="editWorkerModal" tabindex="-1" role="dialog" aria-labelledby="editWorkerModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="editWorkerModalLabel">Edit Worker Details</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="editWorkerForm">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="editWorkerName">Name</label>
+                                        <input type="text" class="form-control" id="editWorkerName" required>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="editWorkerPhone">Phone No</label>
+                                        <input type="text" class="form-control" id="editWorkerPhone" required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="editWorkerPassport">Passport No</label>
+                                        <input type="text" class="form-control" id="editWorkerPassport" required>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="editWorkerIC">IC Number</label>
+                                        <input type="text" class="form-control" id="editWorkerIC" required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="editWorkerWork">Work Department</label>
+                                        <input type="text" class="form-control" id="editWorkerWork" required>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="editWorkerSalary">Salary</label>
+                                        <input type="number" class="form-control" id="editWorkerSalary" required>
+                                    </div>
+                                </div>
+                                <input type="hidden" id="editWorkerId"> <!-- Store Worker ID -->
+                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Delete Confirmation Modal -->
+            <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="deleteConfirmationModalLabel">Confirm Deletion</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Are you sure you want to delete this worker? This action cannot be undone.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
         </div>
-    
+        
         <!-- Firebase Integration -->
         <script type="module">
             import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
             import { getFirestore, collection, getDocs, doc, getDoc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
-    
+        
             const firebaseConfig = {
                 apiKey: "AIzaSyDEgnecR63RJ_pe-2r4pOnpEDv5qLUl2jU",
                 authDomain: "nurafiq-recycling.firebaseapp.com",
                 projectId: "nurafiq-recycling",
-                storageBucket: "nurafiq-recycling.appspot.com",
+                storageBucket: "nurafiq-recycling.firebasestorage.app",
                 messagingSenderId: "583278888482",
                 appId: "1:583278888482:web:c401301f1e08fb8ee4ac7b"
             };
-    
+        
             const app = initializeApp(firebaseConfig);
             const db = getFirestore(app);
-    
-            // Fetch Workers from Firestore
+        
             async function fetchWorkers() {
                 const workersTableBody = document.getElementById('workersTableBody');
                 const workersCollection = collection(db, 'workers');
                 const workersSnapshot = await getDocs(workersCollection);
-                
-                workersSnapshot.forEach((doc) => {
-                    const worker = doc.data();
+        
+                workersSnapshot.forEach((docSnapshot) => {
+                    const worker = docSnapshot.data();
                     const row = document.createElement('tr');
                     row.innerHTML = `
+                        <td></td>
                         <td>${worker.name}</td>
                         <td>${worker.phoneNumber}</td>
                         <td>${worker.passportNumber}</td>
                         <td>${worker.icNumber}</td>
-                        <td>${worker.licenseNumber || 'N/A'}</td>
-                        <td>${worker.status}</td>
                         <td>${worker.workDepartment}</td>
                         <td>${worker.salary}</td>
                         <td>
                             <div class="d-flex align-items-center list-action">
-                                <a class="badge badge-info mr-2" data-toggle="tooltip" data-placement="top" title="View" href="#" data-id="${doc.id}">
+                                <a class="badge badge-info mr-2" data-toggle="tooltip" data-placement="top" title="View" href="#" data-id="${docSnapshot.id}">
                                     <i class="ri-eye-line mr-0"></i>
                                 </a>
-                                <a class="badge bg-success mr-2" data-toggle="tooltip" data-placement="top" title="Edit" href="#" data-id="${doc.id}">
+                                <a class="badge bg-success mr-2" data-toggle="tooltip" data-placement="top" title="Edit" href="#" data-id="${docSnapshot.id}">
                                     <i class="ri-pencil-line mr-0"></i>
                                 </a>
-                                <a class="badge bg-warning mr-2" data-toggle="tooltip" data-placement="top" title="Delete" href="#" data-id="${doc.id}">
+                                <a class="badge bg-warning mr-2" data-toggle="tooltip" data-placement="top" title="Delete" href="#" data-id="${docSnapshot.id}">
                                     <i class="ri-delete-bin-line mr-0"></i>
                                 </a>
                             </div>
@@ -344,186 +413,116 @@
                     `;
                     workersTableBody.appendChild(row);
                 });
-    
-                // Add event listeners for actions (View, Edit, Delete)
-                addActionListeners();
             }
-    
-            // Add event listeners for View, Edit, Delete actions
-            function addActionListeners() {
-                const viewButtons = document.querySelectorAll('a[data-id].badge-info');
-                const editButtons = document.querySelectorAll('a[data-id].bg-success');
-                const deleteButtons = document.querySelectorAll('a[data-id].bg-warning');
-    
-                viewButtons.forEach(button => {
-                    button.addEventListener('click', async (e) => {
-                        e.preventDefault();
-                        const docId = e.target.closest('a').getAttribute('data-id');
-                        await viewWorker(docId);
-                    });
-                });
-    
-                editButtons.forEach(button => {
-                    button.addEventListener('click', async (e) => {
-                        e.preventDefault();
-                        const docId = e.target.closest('a').getAttribute('data-id');
-                        await editWorker(docId);
-                    });
-                });
-    
-                deleteButtons.forEach(button => {
-                    button.addEventListener('click', async (e) => {
-                        e.preventDefault();
-                        const docId = e.target.closest('a').getAttribute('data-id');
-                        await deleteWorker(docId);
-                    });
-                });
+        
+            // Event listener for action buttons (View, Edit, Delete)
+            document.addEventListener('click', async (e) => {
+                if (e.target.closest('a[data-id]')) {
+                    const docId = e.target.closest('a').getAttribute('data-id');
+                    const actionType = e.target.closest('a').classList.contains('badge-info') ? 'view' :
+                                       e.target.closest('a').classList.contains('bg-success') ? 'edit' : 'delete';
+                    handleAction(actionType, docId);
+                }
+            });
+        
+            // Handle actions (View, Edit, Delete)
+            async function handleAction(actionType, docId) {
+                switch (actionType) {
+                    case 'view':
+                        viewWorker(docId);
+                        break;
+                    case 'edit':
+                        editWorker(docId);
+                        break;
+                    case 'delete':
+                        showDeleteConfirmation(docId); 
+                        break;
+                }
             }
-    
-            // View Worker Details
+        
+            // View Worker details
             async function viewWorker(docId) {
                 const docRef = doc(db, 'workers', docId);
                 const docSnapshot = await getDoc(docRef);
                 const worker = docSnapshot.data();
-    
-                // Display worker details in an alert or modal
-                alert(`Worker Name: ${worker.name}\nPhone: ${worker.phoneNumber}\nPassport: ${worker.passportNumber}\nIC No: ${worker.icNumber}\nLicense No: ${worker.licenseNumber}\nStatus: ${worker.status}\nWork: ${worker.workDepartment}\nSalary: ${worker.salary}`);
+        
+                document.getElementById('viewWorkerName').textContent = worker.name;
+                document.getElementById('viewWorkerPhone').textContent = worker.phoneNumber;
+                document.getElementById('viewWorkerPassport').textContent = worker.passportNumber;
+                document.getElementById('viewWorkerIC').textContent = worker.icNumber;
+                document.getElementById('viewWorkerWork').textContent = worker.workDepartment;
+                document.getElementById('viewWorkerSalary').textContent = worker.salary;
+        
+                $('#viewWorkerModal').modal('show');
             }
-    
-            // Edit Worker Details
+        
+            // Edit Worker details
             async function editWorker(docId) {
                 const docRef = doc(db, 'workers', docId);
                 const docSnapshot = await getDoc(docRef);
                 const worker = docSnapshot.data();
-    
-                // Fill in the modal fields with current worker data
-                document.getElementById('editWorkerName').value = worker.name || '';
-                document.getElementById('editPhoneNumber').value = worker.phoneNumber || '';
-                document.getElementById('editPassportNumber').value = worker.passportNumber || '';
-                document.getElementById('editIcNumber').value = worker.icNumber || '';
-                document.getElementById('editLicenseNumber').value = worker.licenseNumber || '';
-                document.getElementById('editStatus').value = worker.status || '';
-                document.getElementById('editWorkDepartment').value = worker.workDepartment || '';
-                document.getElementById('editSalary').value = worker.salary || '';
-    
-                // Open the modal for editing
-                const modal = new bootstrap.Modal(document.getElementById('editWorkerModal'));
-                modal.show();
-    
-                // Save changes when the user clicks the "Save changes" button
-                document.getElementById('saveEditButton').onclick = async () => {
-                    await saveEditedWorker(docId);
-                };
+        
+                document.getElementById('editWorkerName').value = worker.name;
+                document.getElementById('editWorkerPhone').value = worker.phoneNumber;
+                document.getElementById('editWorkerPassport').value = worker.passportNumber;
+                document.getElementById('editWorkerIC').value = worker.icNumber;
+                document.getElementById('editWorkerWork').value = worker.workDepartment;
+                document.getElementById('editWorkerSalary').value = worker.salary;
+                document.getElementById('editWorkerId').value = docId;
+        
+                $('#editWorkerModal').modal('show');
             }
-    
-            // Save Edited Worker
-            async function saveEditedWorker(docId) {
-                const updatedWorker = {
+        
+            // Save edited worker data
+            document.getElementById('editWorkerForm').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const workerId = document.getElementById('editWorkerId').value;
+                const workerRef = doc(db, 'workers', workerId);
+        
+                const updatedData = {
                     name: document.getElementById('editWorkerName').value,
-                    phoneNumber: document.getElementById('editPhoneNumber').value,
-                    passportNumber: document.getElementById('editPassportNumber').value,
-                    icNumber: document.getElementById('editIcNumber').value,
-                    licenseNumber: document.getElementById('editLicenseNumber').value,
-                    status: document.getElementById('editStatus').value,
-                    workDepartment: document.getElementById('editWorkDepartment').value,
-                    salary: document.getElementById('editSalary').value
+                    phoneNumber: document.getElementById('editWorkerPhone').value,
+                    passportNumber: document.getElementById('editWorkerPassport').value,
+                    icNumber: document.getElementById('editWorkerIC').value,
+                    workDepartment: document.getElementById('editWorkerWork').value,
+                    salary: parseFloat(document.getElementById('editWorkerSalary').value)
                 };
-    
-                const docRef = doc(db, 'workers', docId);
-    
-                try {
-                    // Update the document in Firestore
-                    await updateDoc(docRef, updatedWorker);
-    
-                    // Refresh the table
-                    document.getElementById('workersTableBody').innerHTML = ''; // Clear the table
-                    fetchWorkers(); // Fetch and display updated data
-    
-                    // Show success message
-                    alert('Worker updated successfully!');
-    
-                    // Close the modal
-                    const modal = bootstrap.Modal.getInstance(document.getElementById('editWorkerModal'));
-                    modal.hide();
-                } catch (error) {
-                    console.error("Error updating document:", error);
-                }
+        
+                await updateDoc(workerRef, updatedData);
+                alert('Worker updated successfully!');
+                $('#editWorkerModal').modal('hide');
+                fetchWorkers();  // Reload table after update
+            });
+        
+            // Show Delete Confirmation Modal
+            let workerIdToDelete = null;
+            function showDeleteConfirmation(docId) {
+                workerIdToDelete = docId;
+                $('#deleteConfirmationModal').modal('show');
             }
-    
-            // Delete Worker
-            async function deleteWorker(docId) {
-                const docRef = doc(db, 'workers', docId);
-                try {
-                    // Delete the worker document
-                    await deleteDoc(docRef);
-    
-                    // Refresh the table
-                    document.getElementById('workersTableBody').innerHTML = ''; // Clear the table
-                    fetchWorkers(); // Fetch and display updated data
-    
-                    // Show success message
-                    alert('Worker deleted successfully!');
-                } catch (error) {
-                    console.error("Error deleting document:", error);
+        
+            // Confirm Deletion
+            document.getElementById('confirmDeleteBtn').addEventListener('click', async () => {
+                if (workerIdToDelete) {
+                    try {
+                        const docRef = doc(db, 'workers', workerIdToDelete);
+                        await deleteDoc(docRef);
+                        alert('Worker deleted successfully!');
+                        fetchWorkers();
+                        $('#deleteConfirmationModal').modal('hide');
+                    } catch (error) {
+                        console.error("Error deleting worker:", error);
+                        alert('Error deleting worker');
+                    }
                 }
-            }
-    
-            // Fetch workers on page load
+            });
+        
+            // Initial fetch of workers
             fetchWorkers();
         </script>
-    
-        <!-- Modal for Editing Worker -->
-        <div class="modal fade" id="editWorkerModal" tabindex="-1" aria-labelledby="editWorkerModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="editWorkerModalLabel">Edit Worker</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form id="editWorkerForm">
-                            <div class="mb-3">
-                                <label for="editWorkerName" class="form-label">Name</label>
-                                <input type="text" class="form-control" id="editWorkerName" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="editPhoneNumber" class="form-label">Phone Number</label>
-                                <input type="text" class="form-control" id="editPhoneNumber" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="editPassportNumber" class="form-label">Passport No</label>
-                                <input type="text" class="form-control" id="editPassportNumber" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="editIcNumber" class="form-label">IC No</label>
-                                <input type="text" class="form-control" id="editIcNumber" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="editLicenseNumber" class="form-label">License No</label>
-                                <input type="text" class="form-control" id="editLicenseNumber" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="editStatus" class="form-label">Status</label>
-                                <input type="text" class="form-control" id="editStatus" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="editWorkDepartment" class="form-label">Work Department</label>
-                                <input type="text" class="form-control" id="editWorkDepartment" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="editSalary" class="form-label">Salary</label>
-                                <input type="text" class="form-control" id="editSalary" required>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" id="saveEditButton">Save changes</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+        
+        
+        
     
     <!-- Wrapper End-->
     <footer class="iq-footer">

@@ -14,7 +14,24 @@
       <link rel="stylesheet" href="../assets/css/backend.css?v=1.0.0">
       <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
       <link rel="stylesheet" href="../assets/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css">
-      <link rel="stylesheet" href="../assets/vendor/remixicon/fonts/remixicon.css">  </head>
+      <link rel="stylesheet" href="../assets/vendor/remixicon/fonts/remixicon.css"> 
+      <script>
+        // Check if the user is logged in
+        if (!localStorage.getItem('loggedIn')) {
+            window.location.href = 'auth-sign-in.html'; // Redirect to sign-in if not logged in
+        }
+    
+        // Function to handle logout
+        function logout() {
+            localStorage.removeItem('loggedIn'); // Remove logged-in status from localStorage
+            window.location.replace('auth-sign-in.html'); // Replace the current page with the login page
+    
+            // Optional: Automatically reload the page after logout (if needed)
+            setTimeout(function() {
+                window.location.reload(); // Reload the page after a brief delay
+            }, 1000); // Delay to ensure the redirection happens first
+        }
+    </script> </head>
   <body class=" ">
     <!-- loader Start -->
     <div id="loading">

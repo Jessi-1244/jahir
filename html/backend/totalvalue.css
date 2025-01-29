@@ -1,0 +1,22 @@
+
+
+/* Optional: Style for total sales card */
+#totalSalesValue {
+    font-weight: bold;
+    color: #28a745; /* Green color for total sales */
+    font-size: 2rem;
+}
+#totalPurchaseValue {
+    font-weight: bold;
+    color: #28a745; /* Green color for total sales */
+    font-size: 2rem;
+}
+#totalExpenseValue {
+    font-weight: bold;
+    color: #28a745; /* Green color for total sales */
+    font-size: 2rem;
+}
+
+.modal-lg {
+    max-width: 40%; /* Adjust the width percentage as needed */
+}
